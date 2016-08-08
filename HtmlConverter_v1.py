@@ -110,17 +110,21 @@ label_fileName = Label(text="File Name")
 # ****** user input textbox *******
 
 entry_modelName = Entry(root)
+entry_modelName.insert(0, "MODEL")
 
 entry_version = Entry(root)
+entry_version.insert(0, "V1.0")
 entry_version_sub1 = Entry(root)
 
 entry_Date = Entry(root)
 entry_Date.insert(0, "dd-mm-yyyy")
 
 entry_BL = Entry(root)
+entry_BL.insert(0, "V1.0")
 entry_BL_sub1 = Entry(root)
 
 entry_rel = Entry(root)
+entry_rel.insert(0, "Release_V1.0")
 entry_rel_sub1 = Entry(root)
 
 
