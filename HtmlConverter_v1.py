@@ -25,9 +25,9 @@ def doGenerate():
     str_rel_sub1 = entry_rel_sub1.get()
 
     tr_line = "  <tr>\n"
-    td_line1 = "\t<td><a href=\"/" + str_modelName + "/" + str_version + "/" + str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
-    td_line2 = "\t<td><a href=\"/" + str_BL + "\" download>" + "</a></td>\n"
-    td_line3 = "\t<td><a href=\"/" + str_modelName + "/" + str_version + "/" + str_rel_sub1 + "\" target=_blank>" + str_rel + "</a></td>\n"
+    td_line1 = "\t<td><a href=\"" + str_modelName + "/" + str_version + "/" + str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
+    td_line2 = "\t<td><a href=\"" + str_BL + "\" download>" + "</a></td>\n"
+    td_line3 = "\t<td><a href=\"" + str_modelName + "/" + str_version + "/" + str_rel_sub1 + "\" target=_blank>" + str_rel + "</a></td>\n"
     td_line4 = "\t<td>" + str_Date + "</td>\n"
     tr_end_line = "  </tr>\n"
 
