@@ -9,27 +9,36 @@ kVERSION = 0
 kBOOTLOADER = 1
 kRELEASE = 2
 
+kBOARD1 = "1.MAIN POWER"
+kBOARD2 = "2.POWER AMP"
+kBOARD3 = "3.BGM"
+kBOARD4 = "4.ETHERNET"
+kBOARD5 = "5.PRIORITY"
+kBOARD6 = "6.FRONT PANEL"
+kBOARD7 = "7.SPS BOARD"
+kBOARD8 = "8.SPEAKER BOARD"
+kBOARD9 = "9.POWER SW"
 
 def selectBoard(x):
     entry_board.delete(0, END)  # clear text box widget
     if x == 1:
-        entry_board.insert(0, "1.MAIN POWER")
+        entry_board.insert(0, kBOARD1)
     elif x == 2:
-        entry_board.insert(0, "2.POWER AMP")
+        entry_board.insert(0, kBOARD2)
     elif x == 3:
-        entry_board.insert(0, "3.POWER AMP")
+        entry_board.insert(0, kBOARD3)
     elif x == 4:
-        entry_board.insert(0, "4.POWER AMP")
+        entry_board.insert(0, kBOARD4)
     elif x == 5:
-        entry_board.insert(0, "5.POWER AMP")
+        entry_board.insert(0, kBOARD5)
     elif x == 6:
-        entry_board.insert(0, "6.POWER AMP")
+        entry_board.insert(0, kBOARD6)
     elif x == 7:
-        entry_board.insert(0, "7.POWER AMP")
+        entry_board.insert(0, kBOARD7)
     elif x == 8:
-        entry_board.insert(0, "8.POWER AMP")
+        entry_board.insert(0, kBOARD8)
     else:
-        entry_board.insert(0, "9.POWER SW")
+        entry_board.insert(0, kBOARD9)
 
 def doGenerate():
     text_Converted.delete(1.0, END) #clear text box widget
@@ -141,17 +150,17 @@ button_Generate = Button(text="Generate", command=doGenerate)
 # -- radio button  --
 v = IntVar()
 
-Radiobutton(root, text="1.MAIN POWER", variable=v, value=1, command=lambda: selectBoard(1)).grid(row=1, column=1)
-Radiobutton(root, text="2.POWER AMP", variable=v, value=2, command=lambda: selectBoard(2)).grid(row=1, column=2)
-Radiobutton(root, text="3.POWER AMP", variable=v, value=3, command=lambda: selectBoard(3)).grid(row=1, column=3)
+Radiobutton(root, text=kBOARD1, variable=v, value=1, command=lambda: selectBoard(1)).grid(row=1, column=1, sticky=W)
+Radiobutton(root, text=kBOARD2, variable=v, value=2, command=lambda: selectBoard(2)).grid(row=1, column=2, sticky=W)
+Radiobutton(root, text=kBOARD3, variable=v, value=3, command=lambda: selectBoard(3)).grid(row=1, column=3, sticky=W)
 
-Radiobutton(root, text="4.POWER AMP", variable=v, value=4, command=lambda: selectBoard(4)).grid(row=2, column=1)
-Radiobutton(root, text="5.POWER AMP", variable=v, value=5, command=lambda: selectBoard(5)).grid(row=2, column=2)
-Radiobutton(root, text="6.POWER AMP", variable=v, value=6, command=lambda: selectBoard(6)).grid(row=2, column=3)
+Radiobutton(root, text=kBOARD4, variable=v, value=4, command=lambda: selectBoard(4)).grid(row=2, column=1, sticky=W)
+Radiobutton(root, text=kBOARD5, variable=v, value=5, command=lambda: selectBoard(5)).grid(row=2, column=2, sticky=W)
+Radiobutton(root, text=kBOARD6, variable=v, value=6, command=lambda: selectBoard(6)).grid(row=2, column=3, sticky=W)
 
-Radiobutton(root, text="7.POWER AMP", variable=v, value=7, command=lambda: selectBoard(7)).grid(row=3, column=1)
-Radiobutton(root, text="8.POWER AMP", variable=v, value=8, command=lambda: selectBoard(8)).grid(row=3, column=2)
-Radiobutton(root, text="9.POWER SW", variable=v, value=9, command=lambda: selectBoard(9)).grid(row=3, column=3)
+Radiobutton(root, text=kBOARD7, variable=v, value=7, command=lambda: selectBoard(7)).grid(row=3, column=1, sticky=W)
+Radiobutton(root, text=kBOARD8, variable=v, value=8, command=lambda: selectBoard(8)).grid(row=3, column=2, sticky=W)
+Radiobutton(root, text=kBOARD9, variable=v, value=9, command=lambda: selectBoard(9)).grid(row=3, column=3, sticky=W)
 
 # ****** positioning in grid *********
 
