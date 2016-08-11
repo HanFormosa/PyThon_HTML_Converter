@@ -40,6 +40,15 @@ def selectBoard(x):
     else:
         entry_board.insert(0, kBOARD9)
 
+
+def selectType(type):
+    entry_type.delete(0, END)
+    if type == 0:
+        entry_type.insert(0, "SCH")
+    else:
+        entry_type.insert(0, "PCB")
+
+
 def doGenerate():
     text_Converted.delete(1.0, END) #clear text box widget
     str_modelName = entry_modelName.get()
@@ -54,8 +63,10 @@ def doGenerate():
     str_rel = entry_rel.get()
     str_rel_sub1 = entry_rel_sub1.get()
 
+    str_type = entry_type.get()
+
     tr_line = "  <tr>\n"
-    td_line1 = "\t<td><a href=\"" + str_modelName + "/" +  str_board + "/" + str_version + "/" +str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
+    td_line1 = "\t<td><a href=\"" + str_modelName + "/" + str_board + "/" + str_type + "/" + str_version + "/" + str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
     td_line2 = "\t<td><a href=\"" + str_modelName + "/" + str_board + "/" + str_rel_sub1 + "\" target=_blank>" + str_rel + "</a></td>\n"
     td_line3 = "\t<td>" + str_Date + "</td>\n"
     tr_end_line = "  </tr>\n"
@@ -119,6 +130,8 @@ label_fileName = Label(text="File Name")
 
 label_board = Label(text="Board")
 
+label_type = Label(text="Type (SCH/PCB)")
+
 # ****** user input textbox *******
 
 entry_modelName = Entry(root)
@@ -142,17 +155,24 @@ entry_rel_sub1.insert(0, "release.pdf")
 entry_board = Entry(root)
 entry_board.insert(0, "1.MAIN POWER")
 
+entry_type = Entry(root)
+entry_type.insert(0, "SCH")
+
 # ****** Text Box *********
 text_Converted = Text(root)
 
-# *******Buttons ******* TODO: add command
+# *******Buttons *******
 button_BrowseVersion = Button(text="...", command=browseVersion)
 button_BrowseRel = Button(text="...", command=browseRel)
 button_Generate = Button(text="Generate", command=doGenerate)
 
 # -- radio button  --
 v = IntVar()
-# TODO: add radio button for Schmeatic and LAyout
+v2 = IntVar()
+
+Radiobutton(root, text="Schematics", variable=v2, value=1, command=lambda: selectType(0)).grid(row=8, column=2, sticky=W)
+Radiobutton(root, text="Layout", variable=v2, value=2, command=lambda: selectType(1)).grid(row=8, column=3, sticky=W)
+
 Radiobutton(root, text=kBOARD1, variable=v, value=1, command=lambda: selectBoard(1)).grid(row=1, column=1, sticky=W)
 Radiobutton(root, text=kBOARD2, variable=v, value=2, command=lambda: selectBoard(2)).grid(row=1, column=2, sticky=W)
 Radiobutton(root, text=kBOARD3, variable=v, value=3, command=lambda: selectBoard(3)).grid(row=1, column=3, sticky=W)
@@ -190,9 +210,12 @@ entry_rel.grid(row=7, column=1)
 entry_rel_sub1.grid(row=7, column=2)
 button_BrowseRel.grid(row=7, column=3)
 
-button_Generate.grid(row=8, column=1, columnspan=2)
+label_type.grid(row=8, column=0)
 
-text_Converted.grid(row=9, column=0, columnspan=4)
+entry_type.grid(row=8, column=1)
+
+button_Generate.grid(row=10, column=1, columnspan=2)
+text_Converted.grid(row=11, column=0, columnspan=4)
 
 
 root.mainloop()
