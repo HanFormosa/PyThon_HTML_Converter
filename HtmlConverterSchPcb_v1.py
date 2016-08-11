@@ -55,7 +55,7 @@ def doGenerate():
     str_rel_sub1 = entry_rel_sub1.get()
 
     tr_line = "  <tr>\n"
-    td_line1 = "\t<td><a href=\"" + str_modelName + "/" + str_board + "/" + str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
+    td_line1 = "\t<td><a href=\"" + str_modelName + "/" +  str_board + "/" + str_version + "/" +str_version_sub1 + "\" download>" + str_version + "</a></td>\n"
     td_line2 = "\t<td><a href=\"" + str_modelName + "/" + str_board + "/" + str_rel_sub1 + "\" target=_blank>" + str_rel + "</a></td>\n"
     td_line3 = "\t<td>" + str_Date + "</td>\n"
     tr_end_line = "  </tr>\n"
@@ -125,8 +125,9 @@ entry_modelName = Entry(root)
 entry_modelName.insert(0, "MODEL")
 
 entry_version = Entry(root)
-entry_version.insert(0, "1.0")
+entry_version.insert(0, "V1.0")
 entry_version_sub1 = Entry(root)
+entry_version_sub1.insert(0, "schematic.sch")
 
 entry_Date = Entry(root)
 entry_Date.insert(0, "2016-mm-dd")
@@ -135,6 +136,8 @@ entry_Date.insert(0, "2016-mm-dd")
 entry_rel = Entry(root)
 entry_rel.insert(0, "Release Note")
 entry_rel_sub1 = Entry(root)
+entry_rel_sub1.insert(0, "release.pdf")
+
 
 entry_board = Entry(root)
 entry_board.insert(0, "1.MAIN POWER")
