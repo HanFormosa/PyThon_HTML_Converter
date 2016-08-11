@@ -152,7 +152,7 @@ button_Generate = Button(text="Generate", command=doGenerate)
 
 # -- radio button  --
 v = IntVar()
-
+# TODO: add radio button for Schmeatic and LAyout
 Radiobutton(root, text=kBOARD1, variable=v, value=1, command=lambda: selectBoard(1)).grid(row=1, column=1, sticky=W)
 Radiobutton(root, text=kBOARD2, variable=v, value=2, command=lambda: selectBoard(2)).grid(row=1, column=2, sticky=W)
 Radiobutton(root, text=kBOARD3, variable=v, value=3, command=lambda: selectBoard(3)).grid(row=1, column=3, sticky=W)
