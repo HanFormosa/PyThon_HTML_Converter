@@ -20,22 +20,27 @@ else:
     # find iParenthesis (end of program data)
     myFile = open(filename, "r")
     for i, line in enumerate(myFile):
-        if "};" in line:
-            print("{0} found at line {1}".format(line, i+1))
-            break
+        if i >= int(iFrom)-1:
+            if "};" in line:
+                print("{0} found at line {1}".format(line, i + 1))
+                break
+
     iParenthesis = i + 1
     myFile.close()
 
     # find repeat start
-#    myFile = open(filename, "r")
-#    iPrev = 0
-#    for i, line in enumerate(myFile):
-#        if "0x00, 0x00, 0x00, 0x00, 0x01," in line:
-#            print("{0} found at line {1}".format(line, i+1))
-#            iPrev = i
-#            break
-#    iParenthesis = i
-#    myFile.close()
+    myFile = open(filename, "r")
+    iPrev = 0
+    for i, line in enumerate(myFile):
+        if "0x00, 0x00, 0x00, 0x00, 0x01," in line:
+            print("{0} found at line {1}".format(line, i+1))
+            iDiff = i+1 - iPrev
+            if iDiff == 1:
+                print("{0} found line before repeat at line {1}".format(line, i-1))
+                break
+            iPrev = i+1
+    # iParenthesis = i
+    myFile.close()
 
 
     # extract by line number
