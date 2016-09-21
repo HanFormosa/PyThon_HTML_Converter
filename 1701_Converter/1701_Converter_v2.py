@@ -2,19 +2,32 @@ from sys import argv
 
 script, filename = argv
 
+# ******* constants **********
+kPROGRAM = "ADI_REG_TYPE Program_Data"
+kRepeatPROGRAM = "0x00, 0x00, 0x00, 0x00, 0x01,"
+
+# ADI_REG_TYPE Param_Data
+# 0x00, 0x00, 0x00, 0x00,
+# ADI_REG_TYPE Program_Data
+# 0x00, 0x00, 0x00, 0x00, 0x01,
+kPARAMETER = "Param_Data"
+kRepeatPARAM = ""
+
+kHW_CONFIG = "R3_HWCONFIGURATION"
+
+
 try:
     myFile = open(filename, "r")
     writeFile = open("newwriteFile.txt", "w")
 except IOError as e:
     print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
 else:
-    # find iFrom
+    # find iFrom (beginning)
     for i, line in enumerate(myFile):
-        if "ADI_REG_TYPE Program_Data" in line:
+        if kPROGRAM in line:
             print("{0} found at line {1}".format(line, i+1))
             break
     iFrom = i + 2 # offset is 2
-    # iTo = 48 # TODO: remove when iTo is done
     myFile.close() # so that the next enumeration won't continue adding up
 
     # find iParenthesis (end of program data)
@@ -34,7 +47,7 @@ else:
     iPrev = 0
     for i, line in enumerate(myFile):
         if i >= int(iFrom) - 1 and i < int(iParenthesis):
-            if "0x00, 0x00, 0x00, 0x00, 0x01," in line:
+            if kRepeatPROGRAM in line:
                 # print("{0} found at line {1}".format(line, i+1))
                 iDiff = i+1 - iPrev
                 if iDiff == 1:
