@@ -3,15 +3,11 @@ from sys import argv
 script, filename = argv
 
 # ******* constants **********
-kPROGRAM = "ADI_REG_TYPE Param_Data"
-kRepeatPROGRAM = "0x00, 0x00, 0x00, 0x00,"
+kPROGRAM = "ADI_REG_TYPE Program_Data"
+kRepeatPROGRAM = "0x00, 0x00, 0x00, 0x00, 0x01,"
 
-# ADI_REG_TYPE Param_Data
-# 0x00, 0x00, 0x00, 0x00,
-# ADI_REG_TYPE Program_Data
-# 0x00, 0x00, 0x00, 0x00, 0x01,
-kPARAMETER = "Param_Data"
-kRepeatPARAM = ""
+kPARAMETER = "ADI_REG_TYPE Param_Data"
+kRepeatPARAM = "0x00, 0x00, 0x00, 0x00,"
 
 kHW_CONFIG = "R3_HWCONFIGURATION"
 
@@ -47,18 +43,18 @@ else:
     iPrev = 0
     iDiffCount = 0
     iFlag = 0
-    repeatCount = 10 # how many times repetition considered as repetition
+    repeatCount = 6 # how many times repetition considered as repetition
     for i, line in enumerate(myFile):
         if i >= int(iFrom) - 1 and i < int(iParenthesis):
             if kRepeatPROGRAM in line:
                 # print("{0} found at line {1}".format(line, i+1))
                 iDiff = i+1 - iPrev
-                if iFlag == 1:
+                if iFlag == 1: # "watch out for repeat" flag to catch continuous repeat
                     if iDiff != 1:
                         iDiffCount = 0  # clear repeat counter
                         iFlag = 0  # clear "watch out for repeat" flag
                 if iDiff == 1:
-                    print("{0} found at line before repeat at line {1}".format(line, i-1))
+                    # print("{0} found at line before repeat at line {1}".format(line, i-1))
                     iDiffCount += 1 # increment for repeating same line
                     iFlag = 1
                 # if more than 4 lines repeating
@@ -67,7 +63,7 @@ else:
                     break
                 iPrev = i+1
     iTo = i-1-repeatCount
-    print("iTo is {0}".format(iTo))
+    print("iTo is -{0} lines, {1}".format(repeatCount, iTo))
     myFile.close()
 
 
@@ -81,6 +77,9 @@ else:
         elif i >= int(iTo):
             break
 
+    # file size is just total number of lines
+    fileSize = iTo - iFrom # TODO: confirm is need to + 1, line number count starting with 1 or 0
+    print("File Size is {0}".format(fileSize))
     myFile.close()
     writeFile.close()
 
