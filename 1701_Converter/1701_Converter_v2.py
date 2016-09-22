@@ -1,8 +1,12 @@
 from sys import argv
 
-script, filename = argv
+script, filename, dataType = argv
 
 # ******* constants **********
+kkPROGRAM = 0
+kkPARAM = 1
+kkHW = 2
+
 kPROGRAM = "ADI_REG_TYPE Program_Data"
 kRepeatPROGRAM = "0x00, 0x00, 0x00, 0x00, 0x01,"
 
@@ -11,20 +15,31 @@ kRepeatPARAM = "0x00, 0x00, 0x00, 0x00,"
 
 kHW_CONFIG = "R3_HWCONFIGURATION"
 
+varType = int(dataType)  # depend on user selection, default is zero
+if varType == kkPROGRAM:
+    writeFileName = "PROGRAM.txt"
+    varTypeText = kPROGRAM
+    varTypeTextRepeat = kRepeatPROGRAM
+elif varType == kkPARAM:
+    writeFileName = "PARAM.txt"
+    varTypeText = kPARAMETER
+    varTypeTextRepeat = kRepeatPARAM
+elif varType == kkHW:
+    writeFileName = "HWCONFIG.txt"
 
 try:
     myFile = open(filename, "r")
-    writeFile = open("newwriteFile.txt", "w")
+    writeFile = open(writeFileName, "w")
 except IOError as e:
     print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
 else:
     # find iFrom (beginning)
     for i, line in enumerate(myFile):
-        if kPROGRAM in line:
+        if varTypeText in line:
             print("{0} found at line {1}".format(line, i+1))
             break
-    iFrom = i + 2 # offset is 2
-    myFile.close() # so that the next enumeration won't continue adding up
+    iFrom = i + 2  # offset is 2
+    myFile.close()  # so that the next enumeration won't continue adding up
 
     # find iParenthesis (end of program data)
     myFile = open(filename, "r")
@@ -46,7 +61,7 @@ else:
     repeatCount = 6 # how many times repetition considered as repetition
     for i, line in enumerate(myFile):
         if i >= int(iFrom) - 1 and i < int(iParenthesis):
-            if kRepeatPROGRAM in line:
+            if varTypeTextRepeat in line:
                 # print("{0} found at line {1}".format(line, i+1))
                 iDiff = i+1 - iPrev
                 if iFlag == 1: # "watch out for repeat" flag to catch continuous repeat
