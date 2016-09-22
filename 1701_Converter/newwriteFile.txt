@@ -1,4 +1,2 @@
- * Description:    MITA-1000 V2:IC 1 program data.
- *
- * This software is distributed in the hope that it will be useful,
- * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+/*
+ * File:           C:\Company\Project\MITA-1000\3)Firmware\DSP\MT-1000E V2\MT-1000E V2_IC_1.h
