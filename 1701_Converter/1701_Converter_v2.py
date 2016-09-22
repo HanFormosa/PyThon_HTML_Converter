@@ -46,18 +46,24 @@ else:
     myFile = open(filename, "r")
     iPrev = 0
     iDiffCount = 0
+    iFlag = 0
     repeatCount = 10 # how many times repetition considered as repetition
     for i, line in enumerate(myFile):
         if i >= int(iFrom) - 1 and i < int(iParenthesis):
             if kRepeatPROGRAM in line:
                 # print("{0} found at line {1}".format(line, i+1))
                 iDiff = i+1 - iPrev
+                if iFlag == 1:
+                    if iDiff != 1:
+                        iDiffCount = 0  # clear repeat counter
+                        iFlag = 0  # clear "watch out for repeat" flag
                 if iDiff == 1:
                     print("{0} found at line before repeat at line {1}".format(line, i-1))
                     iDiffCount += 1 # increment for repeating same line
+                    iFlag = 1
                 # if more than 4 lines repeating
                 if iDiffCount > repeatCount:
-                    print("{0} found at 4 lines after repeat at line {1}".format(line, i - 1))
+                    print("{0} found at 10 lines after repeat at line {1}".format(line, i - 1))
                     break
                 iPrev = i+1
     iTo = i-1-repeatCount
