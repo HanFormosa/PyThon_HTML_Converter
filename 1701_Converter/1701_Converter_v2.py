@@ -1,6 +1,15 @@
-from sys import argv
+# from sys import argv
+from tkinter import *
+from tkinter import filedialog
+# from Tkinter import * #try this if in terminal don't work
 
-script, filename, dataType = argv
+root = Tk()
+
+# script, filename, dataType = argv
+
+# ****** temporary variables ******
+filename = "MT-1000E V2_IC_1.h"
+
 
 # ******* constants **********
 kkPROGRAM = 0
@@ -14,7 +23,6 @@ kPARAMETER = "ADI_REG_TYPE Param_Data"
 kRepeatPARAM = "0x00, 0x00, 0x00, 0x00,"
 
 kHW_CONFIG = "ADI_REG_TYPE R3_HWCONFIGURATION"
-
 
 def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
     varType = int(dataType)  # depend on user selection, default is zero
@@ -103,5 +111,48 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
         myFile.close()
         writeFile.close()
 
-extractPROGRAM_PARAMETER_HWCONFIG(dataType)
+def browseInput():
+    print("i am browse input")
 
+def browseOutput():
+    print(" i am browse output")
+
+def convertAction():
+    print("i am convert button")
+
+# extractPROGRAM_PARAMETER_HWCONFIG(dataType)
+
+# ******** label *********
+
+label_inputFileName = Label(text="Input")
+label_outputFileName = Label(text="Output")
+
+# ****** user input textbox *******
+
+entry_inputFileName = Entry(root)
+entry_outputFileName = Entry(root)
+
+# ****** Text Box *********
+text_log = Text(root, height=5, width=40)
+
+# *******Buttons ******* TODO: add command
+button_BrowseInput = Button(text="...", command=browseInput)
+button_BrowseOutput = Button(text="...", command=browseOutput)
+
+button_Convert = Button(text="Convert", command=convertAction)
+
+# ****** positioning in grid *********
+
+label_inputFileName.grid(row=0, sticky=E)
+entry_inputFileName.grid(row=0, column=1)
+button_BrowseInput.grid(row=0, column=2)
+
+label_outputFileName.grid(row=1, sticky=E)
+entry_outputFileName.grid(row=1, column=1)
+button_BrowseOutput.grid(row=1, column=2)
+
+button_Convert.grid(row=2, columnspan=3)
+
+text_log.grid(row=3, columnspan=3)
+
+root.mainloop()
