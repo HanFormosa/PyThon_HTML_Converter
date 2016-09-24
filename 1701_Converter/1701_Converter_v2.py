@@ -127,10 +127,18 @@ def browseOutput():
     entry_outputFileName.insert(END, outputFilename)
     # text_log.insert(END, "i am browse output\n")
 
-def convertAction():
-    print("i am convert button")
-    checkCheckBoxStates()
-    text_log.insert(END, getCurrentTime() + "i am bconvert\n")
+
+if __name__ == '__main__':
+    def convertAction():
+        # print("i am convert button")
+        checkCheckBoxStates()
+        text_log.insert(END, getCurrentTime() + "Starting extraction\n")
+
+        # check checkbox status
+        # export tmp files selected using Extract method with filename as input
+        # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
+
+        # TEST - try opening files with entry directory "filename"
 
 def getCurrentTime():
     dateStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S ")
