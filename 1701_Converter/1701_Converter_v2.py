@@ -2,6 +2,8 @@
 from tkinter import *
 from tkinter import filedialog
 # from Tkinter import * #try this if in terminal don't work
+import datetime
+
 
 root = Tk()
 
@@ -9,7 +11,7 @@ root = Tk()
 
 # ****** temporary variables ******
 filename = "MT-1000E V2_IC_1.h"
-
+outputFilename = "DSP_1701.c"
 
 # ******* constants **********
 kkPROGRAM = 0
@@ -112,17 +114,30 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
         writeFile.close()
 
 def browseInput():
-    print("i am browse input")
-    text_log.insert(END, "i am browse input\n")
+    filename = filedialog.askopenfilename()
+    entry_inputFileName.delete(0, END)
+    entry_inputFileName.insert(END, filename)
+    # print("i am browse input")
+    # text_log.insert(END, "i am browse input\n")
 
 def browseOutput():
     print(" i am browse output")
-    text_log.insert(END, "i am browse output\n")
+    outputFilename = filedialog.askopenfilename()
+    entry_outputFileName.delete(0, END)
+    entry_outputFileName.insert(END, outputFilename)
+    # text_log.insert(END, "i am browse output\n")
 
 def convertAction():
     print("i am convert button")
-    text_log.insert(END, "i am bconvert\n")
+    checkCheckBoxStates()
+    text_log.insert(END, getCurrentTime() + "i am bconvert\n")
 
+def getCurrentTime():
+    dateStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S ")
+    return dateStr
+
+def checkCheckBoxStates():
+    print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
 # extractPROGRAM_PARAMETER_HWCONFIG(dataType)
 
 # ******** label *********
@@ -132,17 +147,26 @@ label_outputFileName = Label(text="Output")
 
 # ****** user input textbox *******
 
-entry_inputFileName = Entry(root)
-entry_outputFileName = Entry(root)
+entry_inputFileName = Entry(root, width=70)
+entry_outputFileName = Entry(root, width=70)
 
 # ****** Text Box *********
-text_log = Text(root, height=5, width=40)
+text_log = Text(root, height=20, width=80)
 
 # *******Buttons ******* TODO: add command
 button_BrowseInput = Button(text="...", command=browseInput)
 button_BrowseOutput = Button(text="...", command=browseOutput)
 
 button_Convert = Button(text="Convert", command=convertAction)
+
+
+# ****** Check button ***********
+var1 = IntVar()
+Checkbutton(root, text="PROGRAM", variable=var1).grid(row=2, sticky=W)
+var2 = IntVar()
+Checkbutton(root, text="PARAM", variable=var2).grid(row=3, sticky=W)
+var3 = IntVar()
+Checkbutton(root, text="HW CONFIG", variable=var3).grid(row=4, sticky=W)
 
 # ****** positioning in grid *********
 
@@ -154,8 +178,8 @@ label_outputFileName.grid(row=1, sticky=E)
 entry_outputFileName.grid(row=1, column=1)
 button_BrowseOutput.grid(row=1, column=2)
 
-button_Convert.grid(row=2, columnspan=3)
+button_Convert.grid(row=5, columnspan=3)
 
-text_log.grid(row=3, columnspan=3)
+text_log.grid(row=6, columnspan=3)
 
 root.mainloop()
