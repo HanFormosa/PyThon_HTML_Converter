@@ -113,12 +113,15 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
 
 def browseInput():
     print("i am browse input")
+    text_log.insert(END, "i am browse input\n")
 
 def browseOutput():
     print(" i am browse output")
+    text_log.insert(END, "i am browse output\n")
 
 def convertAction():
     print("i am convert button")
+    text_log.insert(END, "i am bconvert\n")
 
 # extractPROGRAM_PARAMETER_HWCONFIG(dataType)
 
