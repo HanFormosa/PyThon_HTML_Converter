@@ -7,14 +7,14 @@
 #include "DEE Emulation 16-bit.h"
 #define HIGH 1
 #define LOW 0
-//=====< DSP ï¿½Ü¼Æ«Å§i >================================================================================================
+//=====< DSP ÅÜ¼Æ«Å§i >================================================================================================
 /* Bypass */
-//#define PROG_Size      24  // Programe Code ï¿½ï¿½Æ²Õ¼Æ¡G1ï¿½ï¿½ = 5 Byte
-//#define PARA_Size       2  // Parameter Code ï¿½ï¿½Æ²Õ¼Æ¡G1ï¿½ï¿½ = 4 Byte
+//#define PROG_Size      24  // Programe Code ¸ê®Æ²Õ¼Æ¡G1²Õ = 5 Byte
+//#define PARA_Size       2  // Parameter Code ¸ê®Æ²Õ¼Æ¡G1²Õ = 4 Byte
 
 /* SVS-8000D */
-#define PROG_Size    917 // Programe Code ï¿½ï¿½Æ²Õ¼Æ¡G1ï¿½ï¿½ = 5 Byte
-#define PARA_Size    378 // Parameter Code ï¿½ï¿½Æ²Õ¼Æ¡G1ï¿½ï¿½ = 4 Byte
+#define PROG_Size    917 // Programe Code ¸ê®Æ²Õ¼Æ¡G1²Õ = 5 Byte
+#define PARA_Size    378 // Parameter Code ¸ê®Æ²Õ¼Æ¡G1²Õ = 4 Byte
 
 extern void delayms(int);
 
@@ -120,8 +120,8 @@ double eq_gain_tbl[]={
 12,
 
 };
-//-----< DSP ï¿½ï¿½l Program Code >-----------------------------------------------
-//-----< DSP ï¿½ï¿½l Program Code >-----------------------------------------------
+//-----< DSP ªì©l Program Code >-----------------------------------------------
+//-----< DSP ªì©l Program Code >-----------------------------------------------
 const unsigned char PROGRAM_DATA[PROG_Size*5] ={
 0xFF, 0xF2, 0x00, 0x20, 0x01, 
 0x00, 0x00, 0x00, 0xE2, 0x01, 
@@ -1041,7 +1041,7 @@ const unsigned char PROGRAM_DATA[PROG_Size*5] ={
 0x29, 0xB1, 0x08, 0x20, 0x01, 
 0xFF, 0x80, 0x00, 0x02, 0x01, 
 };
-//-----< DSP ï¿½ï¿½l Parameter Code >---------------------------------------------
+//-----< DSP ªì©l Parameter Code >---------------------------------------------
 const unsigned char PARAMETER_DATA[] =
 {
 
@@ -1424,7 +1424,7 @@ const unsigned char PARAMETER_DATA[] =
 0x00, 0x80, 0x00, 0x00,  
 
 };
-//-----< DSP Register Code >----------------------------------------------
+//-----< DSP ªì©l Register Code >----------------------------------------------
 unsigned char DSP_Regist[] =
 {
 //0X00, 0X18, 0X08, 0X00, 0X00, 0X00, 0X00, 0XFF, 0X22, 0X00, 0XFF, 0X02, 0X00, 0X00, 0X00, 0X00, 0X80, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X01
@@ -1433,21 +1433,21 @@ unsigned char DSP_Regist[] =
 //0x00, 0x18, 0x08, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x22, 0x00, 0xFF, 0x02, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01
 };
 
-//-----< DSP ï¿½ï¿½ï¿½@ï¿½Ü¼ï¿½ >--------------------------------------------------------
+//-----< DSP ¤½¦@ÅÜ¼Æ >--------------------------------------------------------
 unsigned char Parameter_Hex[5];
 unsigned char Param_Hex[4];
 unsigned char DSP_Busy_FLAG;
-//=====< DSP ï¿½ò¥»°Ê§@ï¿½Æµ{ï¿½ï¿½ >==========================================================================================
-//-----< ï¿½ï¿½ï¿½J DSP >------------------------------------------------------------
+//=====< DSP °ò¥»°Ê§@°Æµ{¦¡ >==========================================================================================
+//-----< ¸ü¤J DSP >------------------------------------------------------------
 void LoadDSP( void )
 {
- DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x18, 0, 2 );                 // ï¿½Ç°e DSP ï¿½Ö¤ß«ï¿½ï¿½O : ï¿½_ï¿½lï¿½ï¿½}ï¿½Bï¿½Æ¦ï¿½}(ï¿½L)ï¿½Bï¿½ï¿½Æ«ï¿½ï¿½Ð¡Bï¿½ï¿½ï¿½O1ï¿½Bï¿½ï¿½ï¿½O2ï¿½Bï¿½ï¿½Æªï¿½ï¿½ï¿½(ï¿½L)ï¿½Bï¿½Ç°eï¿½Ò¦ï¿½ 2
+ DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x18, 0, 2 );                 // ¶Ç°e DSP ®Ö¤ß«ü¥O : °_©l¦ì§}¡B°Æ¦ì§}(µL)¡B¸ê®Æ«ü¼Ð¡B«ü¥O1¡B«ü¥O2¡B¸ê®Æªø«×(µL)¡B¶Ç°e¼Ò¦¡ 2
 
   DSP_All_Write( PROGRAM_DATA, PARAMETER_DATA );
 
-  DSP_Write( DSP_Core, 0, DSP_Regist, 0, 0, 24, 3 );                // ï¿½Ç°e DSP ï¿½È¦sï¿½ï¿½ï¿½]ï¿½w : ï¿½_ï¿½lï¿½ï¿½}ï¿½Bï¿½Æ¦ï¿½}(ï¿½L)ï¿½Bï¿½ï¿½Æ«ï¿½ï¿½Ð¡Bï¿½ï¿½ï¿½O1(ï¿½L)ï¿½Bï¿½ï¿½ï¿½O2(ï¿½L)ï¿½Bï¿½ï¿½Æªï¿½ï¿½×¡Bï¿½Ç°eï¿½Ò¦ï¿½ 3
+  DSP_Write( DSP_Core, 0, DSP_Regist, 0, 0, 24, 3 );                // ¶Ç°e DSP ¼È¦s¾¹³]©w : °_©l¦ì§}¡B°Æ¦ì§}(µL)¡B¸ê®Æ«ü¼Ð¡B«ü¥O1(µL)¡B«ü¥O2(µL)¡B¸ê®Æªø«×¡B¶Ç°e¼Ò¦¡ 3
 
-  DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x1C, 0, 2 );                 // ï¿½Ç°e DSP ï¿½Ö¤ß«ï¿½ï¿½O : ï¿½_ï¿½lï¿½ï¿½}ï¿½Bï¿½Æ¦ï¿½}(ï¿½L)ï¿½Bï¿½ï¿½Æ«ï¿½ï¿½Ð¡Bï¿½ï¿½ï¿½O1ï¿½Bï¿½ï¿½ï¿½O2ï¿½Bï¿½ï¿½Æªï¿½ï¿½ï¿½(ï¿½L)ï¿½Bï¿½Ç°eï¿½Ò¦ï¿½ 2
+  DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x1C, 0, 2 );                 // ¶Ç°e DSP ®Ö¤ß«ü¥O : °_©l¦ì§}¡B°Æ¦ì§}(µL)¡B¸ê®Æ«ü¼Ð¡B«ü¥O1¡B«ü¥O2¡B¸ê®Æªø«×(µL)¡B¶Ç°e¼Ò¦¡ 2
 }
 
 void DSP_All_Write( const unsigned char *ProgData, const unsigned char *ParaData )
@@ -1459,15 +1459,15 @@ void DSP_All_Write( const unsigned char *ProgData, const unsigned char *ParaData
   DSP_Busy_FLAG = HIGH;
   Length = PROG_Size * 5;
   IdleI2C1( );
-  StartI2C1( );                               // START ï¿½Hï¿½ï¿½
+  StartI2C1( );                               // START «H¸¹
   IdleI2C1( );
-  MasterWriteI2C1( DSP_Chip_Address );              // ï¿½gï¿½J DSP Chip Address
+  MasterWriteI2C1( DSP_Chip_Address );              // ¼g¤J DSP Chip Address
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( 0x04 );                          // ï¿½gï¿½J DSP Programe Address High Byte
+  MasterWriteI2C1( 0x04 );                          // ¼g¤J DSP Programe Address High Byte
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( 0x00 );                          // ï¿½gï¿½J DSP Programe Address Low Byte
+  MasterWriteI2C1( 0x00 );                          // ¼g¤J DSP Programe Address Low Byte
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
   for( Index = 0; Index < Length; Index++ )
@@ -1486,20 +1486,20 @@ while( !I2C1STATbits.ACKSTAT ) break;
     }
   }
   StopI2C1( );
-  IdleI2C1( );                              // STOP ï¿½Hï¿½ï¿½
+  IdleI2C1( );                              // STOP «H¸¹
 
   Length = PARA_Size * 4;                    //
 
   IdleI2C1( );
-  StartI2C1( );                               // START ï¿½Hï¿½ï¿½
+  StartI2C1( );                               // START «H¸¹
   IdleI2C1( );
-  MasterWriteI2C1( DSP_Chip_Address );              // ï¿½gï¿½J DSP Chip Address
+  MasterWriteI2C1( DSP_Chip_Address );              // ¼g¤J DSP Chip Address
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( 0x00 );                          // ï¿½gï¿½J DSP Parameter Address High Byte
+  MasterWriteI2C1( 0x00 );                          // ¼g¤J DSP Parameter Address High Byte
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( 0x00 );                          // ï¿½gï¿½J DSP Parameter Address Low Byte
+  MasterWriteI2C1( 0x00 );                          // ¼g¤J DSP Parameter Address Low Byte
 while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
   for( Index = 0; Index < Length; Index++ )
@@ -1513,11 +1513,11 @@ while( !I2C1STATbits.ACKSTAT ) break;
     for ( Index = 1024 - PARA_Size; Index > 0; Index-- )
       I2C_Write_Loop( 0x00, 4 );
   }
-  StopI2C1( );                                // STOP ï¿½Hï¿½ï¿½
+  StopI2C1( );                                // STOP «H¸¹
   IdleI2C1( );
   DSP_Busy_FLAG = LOW;
 }
-//-----< ï¿½gï¿½J DSP >------------------------------------------------------------
+//-----< ¼g¤J DSP >------------------------------------------------------------
 void DSP_Write( int Address1, int Address2, unsigned char *Data, unsigned char Data1, unsigned char Data2, int Length, unsigned char Mode )
 {
   int Index = 0;
@@ -1527,15 +1527,15 @@ void DSP_Write( int Address1, int Address2, unsigned char *Data, unsigned char D
   unsigned char Address2_L = Address2;
   DSP_Busy_FLAG = HIGH;
   IdleI2C1( );
-  StartI2C1( );                               // START ï¿½Hï¿½ï¿½
+  StartI2C1( );                               // START «H¸¹
   IdleI2C1( );
-  MasterWriteI2C1( DSP_Chip_Address );              // ï¿½gï¿½J DSP Chip Address
+  MasterWriteI2C1( DSP_Chip_Address );              // ¼g¤J DSP Chip Address
   while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( Address1_H );                    // ï¿½gï¿½J DSP Sub Address High Byte
+  MasterWriteI2C1( Address1_H );                    // ¼g¤J DSP Sub Address High Byte
   while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
-  MasterWriteI2C1( Address1_L );                    // ï¿½gï¿½J DSP Sub Address Low Byte
+  MasterWriteI2C1( Address1_L );                    // ¼g¤J DSP Sub Address Low Byte
   while( !I2C1STATbits.ACKSTAT ) break;
   IdleI2C1( );
   switch( Mode )
@@ -1573,40 +1573,40 @@ void DSP_Write( int Address1, int Address2, unsigned char *Data, unsigned char D
       break;
     }
   }
-  StopI2C1( );                   // STOP ï¿½Hï¿½ï¿½
+  StopI2C1( );                   // STOP «H¸¹
   IdleI2C1( );
   DSP_Busy_FLAG = LOW;
 }
-//-----< ï¿½wï¿½ï¿½ï¿½Ò¦ï¿½ï¿½gï¿½J DSP >----------------------------------------------------
+//-----< ¦w¥þ¼Ò¦¡¼g¤J DSP >----------------------------------------------------
 void SafeloadSingleParamWrite( int Address, float Parameter, int Location, unsigned char Enable )
 {
-  Format_Fix( Parameter );                                                // ï¿½à´«ï¿½ï¿½Æ®æ¦¡
+  Format_Fix( Parameter );                                                // Âà´«¸ê®Æ®æ¦¡
   Parameter_Hex[0] = 0x00;
   Parameter_Hex[1] = Param_Hex[0];
   Parameter_Hex[2] = Param_Hex[1];
   Parameter_Hex[3] = Param_Hex[2];
   Parameter_Hex[4] = Param_Hex[3];
-  DSP_Write( SAFELOAD_DATA_0 + Location, 0, Parameter_Hex, 0, 0, 5, 3 );  // ï¿½gï¿½J DATA
-  DSP_Write( SAFELOAD_ADDRESS_0 + Location, Address, 0, 0, 0, 0, 4 );     // ï¿½gï¿½J ADDRESS
+  DSP_Write( SAFELOAD_DATA_0 + Location, 0, Parameter_Hex, 0, 0, 5, 3 );  // ¼g¤J DATA
+  DSP_Write( SAFELOAD_ADDRESS_0 + Location, Address, 0, 0, 0, 0, 4 );     // ¼g¤J ADDRESS
   if ( Enable )
-    DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );                     // ï¿½Ò°ï¿½ DSP ï¿½Ü§ï¿½
+    DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );                     // ±Ò°Ê DSP ÅÜ§ó
 }
 
 void SafeloadSingleParamWrite2( int Address, float Parameter, int Location, unsigned char Enable )
 {
-  //Format_Fix( Parameter );                                                // ï¿½à´«ï¿½ï¿½Æ®æ¦¡
+  //Format_Fix( Parameter );                                                // Âà´«¸ê®Æ®æ¦¡
   Parameter_Hex[0] = 0x00;
   Parameter_Hex[1] = 0x00;
   Parameter_Hex[2] = 0x00;
   Parameter_Hex[3] = 0x00;
   Parameter_Hex[4] = Parameter;
 
-  DSP_Write( SAFELOAD_DATA_0 + Location, 0, Parameter_Hex, 0, 0, 5, 3 );  // ï¿½gï¿½J DATA
-  DSP_Write( SAFELOAD_ADDRESS_0 + Location, Address, 0, 0, 0, 0, 4 );     // ï¿½gï¿½J ADDRESS
+  DSP_Write( SAFELOAD_DATA_0 + Location, 0, Parameter_Hex, 0, 0, 5, 3 );  // ¼g¤J DATA
+  DSP_Write( SAFELOAD_ADDRESS_0 + Location, Address, 0, 0, 0, 0, 4 );     // ¼g¤J ADDRESS
   if ( Enable )
-    DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );                     // ï¿½Ò°ï¿½ DSP ï¿½Ü§ï¿½
+    DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );                     // ±Ò°Ê DSP ÅÜ§ó
 }
-//-----< ï¿½ï¿½Æ®æ¦¡ï¿½à´« >--------------------------------------------------------
+//-----< ¸ê®Æ®æ¦¡Âà´« >--------------------------------------------------------
 void Format_Fix( float Param_Dec )
 {
   long Param223;
@@ -1619,7 +1619,7 @@ void Format_Fix( float Param_Dec )
   Param_Hex[0]=(char)( Param227 >> 24 );  // Get byte 0 (MSBs) of parameter value
   Param_Hex[0] = Param_Hex[0] ^ 0x08;     // Invert sign bit to get correct sign
 }
-//-----< I2C ï¿½sï¿½ï¿½Ç°e >---------------------------------------------------------
+//-----< I2C ³sÄò¶Ç°e >---------------------------------------------------------
 void I2C_Write_Loop( unsigned char Data, unsigned char Count )
 {
   for(; Count > 0; Count--) {
@@ -1633,9 +1633,9 @@ while( !I2C1STATbits.ACKSTAT ) break;
 //{
 //  unsigned long Data = 0;
 //  DSP_Busy_FLAG = HIGH;
-//  IdleI2C( );                           // ï¿½Ë¬d I2C BUS ï¿½Oï¿½_ï¿½Å¶ï¿½
-//  StartI2C( );                          // START ï¿½Hï¿½ï¿½
-//  WriteI2C( DSP_Chip_Address | 0x01 );  // ï¿½gï¿½J DSP Chip Address ( Read )
+//  IdleI2C( );                           // ÀË¬d I2C BUS ¬O§_ªÅ¶¢
+//  StartI2C( );                          // START «H¸¹
+//  WriteI2C( DSP_Chip_Address | 0x01 );  // ¼g¤J DSP Chip Address ( Read )
 //  WriteI2C( 0x03 );
 //  Nop( );
 //  Nop( );
@@ -1651,9 +1651,9 @@ while( !I2C1STATbits.ACKSTAT ) break;
 //  return( Data );
 //}
 
-//=====< DSP ï¿½\ï¿½ï¿½Æµ{ï¿½ï¿½ >==============================================================================================
+//=====< DSP ¥\¯à°Æµ{¦¡ >==============================================================================================
 //-----< Volume Control >------------------------------------------------------
-void Volume_Slow( unsigned int Vol_Address, double dB, double SW_Rate )	//	sw rate	ï¿½Ì¤pï¿½ï¿½ï¿½iï¿½Cï¿½ï¿½ 1, ï¿½Ì¤jï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ 23
+void Volume_Slow( unsigned int Vol_Address, double dB, double SW_Rate )	//	sw rate	³Ì¤p¤£¥i§C©ó 1, ³Ì¤j¤£¥i°ª©ó 23
 {
   double Vol, Index, Rate;
   DSP_Busy_FLAG = HIGH;
@@ -1863,7 +1863,7 @@ void LowPass_filter_1Order( unsigned int Address, double Frequency, double Gain 
 0.868042707443237	0X00 ,	0X6F ,	0X1C ,	0X06 ,
 */
 }
-//----< 2 Order Filter ï¿½ï¿½mï¿½gï¿½J >-----------------------------------------------------
+//----< 2 Order Filter ¦ì¸m¼g¤J >-----------------------------------------------------
 void Filter_Write( unsigned int Address, double *Data )
 {
   SafeloadSingleParamWrite( Address, Data[0], 0, 0 );
@@ -1872,7 +1872,7 @@ void Filter_Write( unsigned int Address, double *Data )
   SafeloadSingleParamWrite( Address + 3, Data[3], 3, 0 );
   SafeloadSingleParamWrite( Address + 4, Data[4], 4, 1 );
 }
-//----< 1 Order Filter ï¿½ï¿½mï¿½gï¿½J >-----------------------------------------------------
+//----< 1 Order Filter ¦ì¸m¼g¤J >-----------------------------------------------------
 void Filter_Write_1Order( unsigned int Address, double *Data )
 {
   SafeloadSingleParamWrite( Address, Data[0], 0, 0 );
@@ -1892,10 +1892,10 @@ void PHASE_Delay( unsigned int Address, long Data )
   Phase_Delay[0] = 0x00;
   	Mute(MUTE,1);
 
-  DSP_Write( SAFELOAD_DATA_0, 0, Phase_Delay, 0, 0, 5, 3 );    // ï¿½gï¿½J DATA
-  DSP_Write( SAFELOAD_ADDRESS_0, Address, 0, 0, 0, 0, 4 );     // ï¿½gï¿½J ADDRESS
+  DSP_Write( SAFELOAD_DATA_0, 0, Phase_Delay, 0, 0, 5, 3 );    // ¼g¤J DATA
+  DSP_Write( SAFELOAD_ADDRESS_0, Address, 0, 0, 0, 0, 4 );     // ¼g¤J ADDRESS
 	delayms(10);
-  DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );            // ï¿½Ò°ï¿½ DSP ï¿½Ü§ï¿½
+  DSP_Write( DSP_Core, 0, 0x00, 0x00, 0x3C, 0, 2 );            // ±Ò°Ê DSP ÅÜ§ó
 	Mute(MUTE,0);
   DSP_Busy_FLAG = LOW;
 }
@@ -2063,7 +2063,7 @@ void DSP_Data_Capture_Read(unsigned int address,unsigned char *level_out)
   	StopI2C1( );
 
 	IdleI2C1( );
-        StartI2C1( );                               // START ï¿½Hï¿½ï¿½
+        StartI2C1( );                               // START «H¸¹
 	IdleI2C1( );
 	MasterWriteI2C1(0x68);          //EEPROM I2C address / Write
 	IdleI2C1( );

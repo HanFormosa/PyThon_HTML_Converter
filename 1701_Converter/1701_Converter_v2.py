@@ -214,13 +214,16 @@ def copyToOutput(dataType, outputFilename):
         print("iParenthesis is {0}".format(iParenthesis))
         outputFile.close()
 
-
-
+        # remove lines
+        for line in fileinput.input(outputFilename, inplace=True):
+            if fileinput.lineno() == 126:
+                continue
+            print(line, end='')
 
         # add new text in files
         for line in fileinput.FileInput(outputFilename, inplace=1):
             if varTypeText in line:
-                line = line.replace(line, line + "NEW_TEXT")
+                line = line.replace(line, line + "NEW_TEXT\n")
             print(line, end='')
 
     # find PARAM if datatype is PARAM
