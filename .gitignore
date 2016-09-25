@@ -8,3 +8,6 @@ vcs.xml
 modules.xml
 misc.xml
 workspace.xml
+_HWCONFIG.tmp
+_PARAM.tmp
+_PROGRAM.tmp
