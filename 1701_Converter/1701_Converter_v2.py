@@ -28,6 +28,11 @@ kRepeatPARAM = "0x00, 0x00, 0x00, 0x00,"
 
 kHW_CONFIG = "ADI_REG_TYPE R3_HWCONFIGURATION"
 
+# detection string for output files
+k2PROGRAM = "PROGRAM_DATA["
+k2PARAMETER = "PARAMETER_DATA["
+k2HW_CONFIG = "DSP_Regist["
+
 
 def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
     varType = int(dataType)  # depend on user selection, default is zero
@@ -135,6 +140,7 @@ def browseOutput():
 def convertAction():
     # print("i am convert button")
     # checkCheckBoxStates()
+    text_log.delete(1.0, END)
     text_log.insert(END, getCurrentTime() + "Starting extraction\n")
 
     # check checkbox status
@@ -146,6 +152,7 @@ def convertAction():
     if PROGRAM_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting PROGRAM DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPROGRAM, entry_inputFileName.get())
+        copyToOutput(kkPROGRAM, entry_outputFileName.get())
     if PARAM_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
@@ -168,15 +175,45 @@ def getCurrentTime():
 
 def checkCheckBoxStates():
     print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
-# extractPROGRAM_PARAMETER_HWCONFIG(dataType)
 
-def copyToOutput(dataType):
-    print(" i am copy ")
-
+def copyToOutput(dataType, outputFilename):
+    varType = int(dataType)  # depend on user selection, default is zero
+    if varType == kkPROGRAM:
+        varTypeText = k2PROGRAM
+    elif varType == kkPARAM:
+        varTypeText = k2PARAMETER
+    elif varType == kkHW:
+        varTypeText = k2HW_CONFIG
     # open output filename
+    try:
+        outputFile = open(outputFilename, "r+")
+    except IOError as e:
+        print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
+        text_log.insert(END, getCurrentTime() + "Cannot open file: {0}\n".format(outputFilename))
+    else:
+        # find PROGRAM if datatype is PROGRAM
+        # if found, check if TMP file available, then open TMP file ,delete and replace with _PROGRAM.tmp content
+        # find iFrom (beginning)
+        for i, line in enumerate(outputFile):
+            if varTypeText in line:
+                print("OutputFile: {0} found at line {1}".format(line, i + 1))
+                break
+        iFrom = i + 2  # offset is 2
+        outputFile.close()  # so that the next enumeration won't continue adding up
 
-    # find PROGRAM if datatype is PROGRAM
-    # if found, check if TMP file available, then open TMP file ,delete and replace with _PROGRAM.tmp content
+        # find iParenthesis (end of program data)
+        outputFile = open(outputFilename, "r+")
+        for i, line in enumerate(outputFile):
+            if i >= int(iFrom) - 1:
+                if "};" in line:
+                    print("{0} found at line {1}".format(line, i + 1))
+                    break
+
+        iParenthesis = i + 1
+        print("iParenthesis is {0}".format(iParenthesis))
+        outputFile.close()
+
+
 
     # find PARAM if datatype is PARAM
     # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
