@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import filedialog
 # from Tkinter import * #try this if in terminal don't work
 import datetime
+import fileinput
 
 
 root = Tk()
@@ -214,6 +215,13 @@ def copyToOutput(dataType, outputFilename):
         outputFile.close()
 
 
+
+
+        # add new text in files
+        for line in fileinput.FileInput(outputFilename, inplace=1):
+            if varTypeText in line:
+                line = line.replace(line, line + "NEW_TEXT")
+            print(line, end='')
 
     # find PARAM if datatype is PARAM
     # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
