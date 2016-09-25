@@ -10,7 +10,7 @@ root = Tk()
 # script, filename, dataType = argv
 
 # ****** temporary variables ******
-filename = "MT-1000E V2_IC_1.h"
+# filename = "MT-1000E V2_IC_1.h"
 outputFilename = "DSP_1701.c"
 
 # ******* constants **********
@@ -26,7 +26,8 @@ kRepeatPARAM = "0x00, 0x00, 0x00, 0x00,"
 
 kHW_CONFIG = "ADI_REG_TYPE R3_HWCONFIGURATION"
 
-def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
+
+def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
     varType = int(dataType)  # depend on user selection, default is zero
     if varType == kkPROGRAM:
         writeFileName = "_PROGRAM.tmp"
@@ -45,6 +46,7 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
         writeFile = open(writeFileName, "w")
     except IOError as e:
         print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
+        text_log.insert(END, getCurrentTime() + "Cannot open file: {0}\n".format(filename))
     else:
         # find iFrom (beginning)
         for i, line in enumerate(myFile):
@@ -114,9 +116,9 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType):
         writeFile.close()
 
 def browseInput():
-    filename = filedialog.askopenfilename()
+    inputFilename = filedialog.askopenfilename()
     entry_inputFileName.delete(0, END)
-    entry_inputFileName.insert(END, filename)
+    entry_inputFileName.insert(END, inputFilename)
     # print("i am browse input")
     # text_log.insert(END, "i am browse input\n")
 
@@ -128,17 +130,30 @@ def browseOutput():
     # text_log.insert(END, "i am browse output\n")
 
 
-if __name__ == '__main__':
-    def convertAction():
-        # print("i am convert button")
-        checkCheckBoxStates()
-        text_log.insert(END, getCurrentTime() + "Starting extraction\n")
+def convertAction():
+    # print("i am convert button")
+    # checkCheckBoxStates()
+    text_log.insert(END, getCurrentTime() + "Starting extraction\n")
 
-        # check checkbox status
-        # export tmp files selected using Extract method with filename as input
-        # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
+    # check checkbox status
+    PROGRAM_STATE = var1.get()
+    PARAM_STATE = var2.get()
+    HW_STATE = var3.get()
 
-        # TEST - try opening files with entry directory "filename"
+    # export tmp files selected using Extract method with filename as input
+    if PROGRAM_STATE == 1:
+        text_log.insert(END, getCurrentTime() + "Extracting PROGRAM DATA\n")
+        extractPROGRAM_PARAMETER_HWCONFIG(kkPROGRAM, entry_inputFileName.get())
+    if PARAM_STATE == 1:
+        text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
+        extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
+    if HW_STATE == 1:
+        text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
+        extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
+    # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
+
+    # TEST - try opening files with entry directory "filename"
+    print("filename is {0}".format(entry_inputFileName.get()))
 
 def getCurrentTime():
     dateStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S ")
