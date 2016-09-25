@@ -13,6 +13,8 @@ root = Tk()
 # filename = "MT-1000E V2_IC_1.h"
 outputFilename = "DSP_1701.c"
 
+globalErrorFlag = 0  # check this status on convert to see if there's any error
+
 # ******* constants **********
 kkPROGRAM = 0
 kkPARAM = 1
@@ -150,10 +152,15 @@ def convertAction():
     if HW_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
-    # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
 
     # TEST - try opening files with entry directory "filename"
-    print("filename is {0}".format(entry_inputFileName.get()))
+    # print("filename is {0}".format(entry_inputFileName.get()))
+
+    # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
+
+    if globalErrorFlag == 1:
+        text_log.insert(END, getCurrentTime() + "Error happened during extraction\n")
+
 
 def getCurrentTime():
     dateStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S ")
@@ -162,6 +169,22 @@ def getCurrentTime():
 def checkCheckBoxStates():
     print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
 # extractPROGRAM_PARAMETER_HWCONFIG(dataType)
+
+def copyToOutput(dataType):
+    print(" i am copy ")
+
+    # open output filename
+
+    # find PROGRAM if datatype is PROGRAM
+    # if found, check if TMP file available, then open TMP file ,delete and replace with _PROGRAM.tmp content
+
+    # find PARAM if datatype is PARAM
+    # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
+
+    # find HW if datatype is HW
+    # if found, check if TMP file available, open TMP file, don't delete, just comment previous line and add line from _HW.tmp
+
+
 
 # ******** label *********
 
