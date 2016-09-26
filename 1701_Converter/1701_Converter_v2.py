@@ -181,10 +181,13 @@ def copyToOutput(dataType, outputFilename):
     varType = int(dataType)  # depend on user selection, default is zero
     if varType == kkPROGRAM:
         varTypeText = k2PROGRAM
+        tmpFileName = "_PROGRAM.tmp"
     elif varType == kkPARAM:
         varTypeText = k2PARAMETER
+        tmpFileName = "_PARAM.tmp"
     elif varType == kkHW:
         varTypeText = k2HW_CONFIG
+        tmpFileName = "_HWCONFIG.tmp"
     # open output filename
     try:
         outputFile = open(outputFilename, "r+")
@@ -231,16 +234,37 @@ def copyToOutput(dataType, outputFilename):
                 continue
             print(line, end='')
 
-        # add new text in files
-        # for line in fileinput.FileInput(outputFilename, inplace=1):
-        #   if varTypeText in line:
-        #        line = line.replace(line, line + "NEW_TEXT\n")
-        #    print(line, end='')
+        # read from tmp file
+        outputtmpFile = open(tmpFileName, "r")
+        contents = outputtmpFile.readlines()
+        outputtmpFile.close()
 
+        print(contents)
+        # add new text in files
+        #for (i, line) in fileinput.FileInput(outputFilename, inplace=1):
+        #    if i == 124:
+        #        line = line.replace(line, line + "NEW_TEXT\n")
+         #   print(line, end='')
+            #if varTypeText in line:
+            #   line = line.replace(line, line + "NEW_TEXT\n")
+         #   print(line, end='')
+
+        #outputFile = open(outputFilename, "r+")
+       # for i, line in enumerate(outputFile):
+          #  if i == 124:
+          #      # 3rd line
+          #      print("writing file with iOpenParenthsis = {0}".format(iOpenParenthesis))
+         #       print(line)
+         #       outputFile.seek(outputFile.tell())
+        #        outputFile.write("new line1\n")
+#                #outputFile.write("new line2\n")
+#                #outputFile.write("new line3\n")
+                #break
+        #outputFile.close()
     # find PARAM if datatype is PARAM
     # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
 
-    # find HW if datatype is HW
+    # find HW if datatype is HW (need special treatment
     # if found, check if TMP file available, open TMP file, don't delete, just comment previous line and add line from _HW.tmp
 
 
@@ -286,5 +310,8 @@ button_BrowseOutput.grid(row=1, column=2)
 button_Convert.grid(row=5, columnspan=3)
 
 text_log.grid(row=6, columnspan=3)
+
+entry_inputFileName.insert(0,"C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/MT-1000E V2_IC_1.h")
+entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
 
 root.mainloop()
