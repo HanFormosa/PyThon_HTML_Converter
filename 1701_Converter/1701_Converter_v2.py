@@ -202,6 +202,17 @@ def copyToOutput(dataType, outputFilename):
         iFrom = i + 2  # offset is 2
         outputFile.close()  # so that the next enumeration won't continue adding up
 
+        # find iOpenParenthesis
+        outputFile = open(outputFilename, "r+")
+        for i, line in enumerate(outputFile):
+            if i >= int(iFrom) - 2:  # TODO: 2 or 1?
+                if "{" in line:
+                    print("OutputFile: {0} found at line {1}".format(line, i + 1))
+                    break
+        iOpenParenthesis = i + 1  # offset is 1
+        print("iOpenParenthesis is {0}".format(iOpenParenthesis))
+        outputFile.close()  # so that the next enumeration won't continue adding up
+
         # find iParenthesis (end of program data)
         outputFile = open(outputFilename, "r+")
         for i, line in enumerate(outputFile):
@@ -216,15 +227,15 @@ def copyToOutput(dataType, outputFilename):
 
         # remove lines
         for line in fileinput.input(outputFilename, inplace=True):
-            if fileinput.lineno() == 126:
+            if fileinput.lineno() > iOpenParenthesis and fileinput.lineno() < iParenthesis:
                 continue
             print(line, end='')
 
         # add new text in files
-        for line in fileinput.FileInput(outputFilename, inplace=1):
-            if varTypeText in line:
-                line = line.replace(line, line + "NEW_TEXT\n")
-            print(line, end='')
+        # for line in fileinput.FileInput(outputFilename, inplace=1):
+        #   if varTypeText in line:
+        #        line = line.replace(line, line + "NEW_TEXT\n")
+        #    print(line, end='')
 
     # find PARAM if datatype is PARAM
     # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
