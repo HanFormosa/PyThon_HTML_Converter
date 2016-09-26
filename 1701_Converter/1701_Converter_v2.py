@@ -108,14 +108,6 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
             iTo = iParenthesis - 1
 
         # extract by line number
-        myFile = open(filename, "r")
-        for i, line in enumerate(myFile):
-            if i >= int(iFrom) - 1 and i < int(iTo):
-                # copy to new file
-                writeFile.write(line)
-
-            elif i >= int(iTo):
-                break
 
         # file size is just total number of lines
         fileSize = iTo - iFrom + 1  # TODO: confirm is need to + 1, line number count starting with 1 or 0
@@ -241,6 +233,7 @@ def copyToOutput(dataType, outputFilename):
 
         print(contents)
         # add new text in files
+
         #for (i, line) in fileinput.FileInput(outputFilename, inplace=1):
         #    if i == 124:
         #        line = line.replace(line, line + "NEW_TEXT\n")
@@ -315,3 +308,13 @@ entry_inputFileName.insert(0,"C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1
 entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
 
 root.mainloop()
+
+# ******************** test copy ********************
+#myinsert="""new line1\nnew line2\nnew line3"""
+#for line in fileinput.input("file",inplace=1):
+#    linenum=fileinput.lineno()
+#    if linenum==1 or linenum>4 :
+#        line=line.rstrip()
+#    if linenum==2:
+#        line=line+myinsert
+#    print line
