@@ -131,7 +131,6 @@ def browseInput():
     # text_log.insert(END, "i am browse input\n")
 
 def browseOutput():
-    print(" i am browse output")
     outputFilename = filedialog.askopenfilename()
     entry_outputFileName.delete(0, END)
     entry_outputFileName.insert(END, outputFilename)
@@ -157,6 +156,7 @@ def convertAction():
     if PARAM_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
+        copyToOutput(kkPARAM, entry_outputFileName.get())
     if HW_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
@@ -202,7 +202,7 @@ def copyToOutput(dataType, outputFilename):
         iFrom = i + 2  # offset is 2
         outputFile.close()  # so that the next enumeration won't continue adding up
 
-        # find iOpenParenthesis
+        # find iOpenParenthesis ( in case iFrom is different line from "open parenthesis")
         outputFile = open(outputFilename, "r+")
         for i, line in enumerate(outputFile):
             if i >= int(iFrom) - 2:  # TODO: 2 or 1?
