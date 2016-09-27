@@ -35,6 +35,11 @@ k2PARAMETER = "PARAMETER_DATA["
 k2HW_CONFIG = "DSP_Regist["
 
 
+k3PROGRAMSIZE = "#define PROG_Size"
+k3PROGRAMSIZE_COMMENT = " //Program Code"
+k3PARAMSIZE = "#define PARA_Size"
+k3PARAMSIZE_COMMENT = " //Parameter Code"
+
 def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
     varType = int(dataType)  # depend on user selection, default is zero
     if varType == kkPROGRAM:
@@ -152,6 +157,7 @@ def convertAction():
         text_log.insert(END, getCurrentTime() + "Extracting PROGRAM DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPROGRAM, entry_inputFileName.get())
         copyToOutput(kkPROGRAM, entry_outputFileName.get())
+        copyProgSize_ParamSize(kkPROGRAM, entry_outputFileName.get())
     if PARAM_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
@@ -276,7 +282,29 @@ def copyToOutput(dataType, outputFilename):
                     line = line + tmpStr
                 print(line, end='')
 
+def copyProgSize_ParamSize(dataType, outputFilename):
+    varType = int(dataType)  # depend on user selection, default is zero
+    if varType == kkPROGRAM:
+        tmpFileName = "_PROGRAM.tmp"
+        tmpDetString = k3PROGRAMSIZE
+        tmpDetComment = k3PROGRAMSIZE_COMMENT
+    elif varType == kkPARAM:
+        tmpFileName = "_PARAM.tmp"
+        tmpDetString = k3PARAMSIZE
+        tmpDetComment = k3PARAMSIZE_COMMENT
+    # get file size of _PARAM or _PROGRAM tmp files
+    with open(tmpFileName) as f:
+        for i, l in enumerate(f):
+            pass
+    fileSize = i + 1
+    print("file size is : {0}".format(fileSize))
 
+    # find #define PRog_Size and insert fileSize
+    for line in fileinput.input(outputFilename, inplace=1):
+        if tmpDetString in line:
+            if (line.find("/") > len(tmpDetString)) or (line.find("/") == -1):
+                line = line.replace(line, tmpDetString + "\t" + str(fileSize) + tmpDetComment + "\n")
+        print(line, end='')
 
 # ******** label *********
 
