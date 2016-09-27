@@ -263,8 +263,18 @@ def copyToOutput(dataType, outputFilename):
                             line = line.replace(line, "//" + getCurrentTime() + "//" + line)
                 print(line, end='')
 
-    # find HW if datatype is HW (need special treatment
-    # if found, check if TMP file available, open TMP file, don't delete, just comment previous line and add line from _HW.tmp
+            # read from tmp file: HW config
+            outputtmpFile = open(tmpFileName, "r")
+            contents = outputtmpFile.readlines()
+            outputtmpFile.close()
+
+            tmpStr = ''.join(contents)
+            # insert line from HW CONFIG tmp file
+            for line in fileinput.input(outputFilename, inplace=1):
+                linenum = fileinput.lineno()
+                if linenum == iParenthesis -1:  # insert 1 line before close parenthesis
+                    line = line + tmpStr
+                print(line, end='')
 
 
 
