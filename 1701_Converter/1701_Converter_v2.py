@@ -238,16 +238,18 @@ def copyToOutput(dataType, outputFilename):
         contents = outputtmpFile.readlines()
         outputtmpFile.close()
 
-        print(contents)
+        #print(contents[0:2])
+        tmpStr = ''.join(contents)
+        print("content as string {0}".format(tmpStr))
         # add new text in files
 
-        myinsert="""new line1\nnew line2\nnew line3"""
+        #myinsert="""new line1\nnew line2\nnew line3"""
         for line in fileinput.input(outputFilename,inplace=1):
             linenum=fileinput.lineno()
             #if linenum==1 or linenum>4 :
             #    line=line.rstrip()
             if linenum==iOpenParenthesis:
-                line=line+myinsert
+                line=line+tmpStr
             print(line, end='')
 
         #for (i, line) in fileinput.FileInput(outputFilename, inplace=1):
