@@ -159,6 +159,7 @@ def convertAction():
     if HW_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
+        copyToOutput(kkHW, entry_outputFileName.get())
 
     # TEST - try opening files with entry directory "filename"
     # print("filename is {0}".format(entry_inputFileName.get()))
@@ -227,31 +228,40 @@ def copyToOutput(dataType, outputFilename):
         print("iParenthesis is {0}".format(iParenthesis))
         outputFile.close()
 
-        # remove lines
-        for line in fileinput.input(outputFilename, inplace=True):
-            if fileinput.lineno() > iOpenParenthesis and fileinput.lineno() < iParenthesis:
-                continue
-            print(line, end='')
+        if varType != kkHW: # HWconfig need special treatment. not basic delete and replace.
+            # remove lines
+            for line in fileinput.input(outputFilename, inplace=True):
+                if fileinput.lineno() > iOpenParenthesis and fileinput.lineno() < iParenthesis:
+                    continue
+                print(line, end='')
 
-        # read from tmp file
-        outputtmpFile = open(tmpFileName, "r")
-        contents = outputtmpFile.readlines()
-        outputtmpFile.close()
+            # read from tmp file
+            outputtmpFile = open(tmpFileName, "r")
+            contents = outputtmpFile.readlines()
+            outputtmpFile.close()
 
-        #print(contents[0:2])
-        tmpStr = ''.join(contents)
-        print("content as string {0}".format(tmpStr))
-        # add new text in files
+            # print(contents[0:2])
+            tmpStr = ''.join(contents)
+            #print("content as string {0}".format(tmpStr))
+            # add new text in files
 
-        #myinsert="""new line1\nnew line2\nnew line3"""
-        for line in fileinput.input(outputFilename,inplace=1):
-            linenum=fileinput.lineno()
-            #if linenum==1 or linenum>4 :
-            #    line=line.rstrip()
-            if linenum==iOpenParenthesis:
-                line=line+tmpStr
-            print(line, end='')
-
+            # myinsert="""new line1\nnew line2\nnew line3"""
+            for line in fileinput.input(outputFilename, inplace=1):
+                linenum = fileinput.lineno()
+                # if linenum==1 or linenum>4 :
+                #    line=line.rstrip()
+                if linenum == iOpenParenthesis:
+                    line = line + tmpStr
+                print(line, end='')
+        else:
+            # check for "//" characters between "{" and "}"., if not commented, comment it.
+            for line in fileinput.input(outputFilename, inplace=1):
+                linenum = fileinput.lineno()
+                if linenum > iOpenParenthesis and linenum < iParenthesis:
+                    if "0x" or "0X" in line:
+                        if not ("//") in line:
+                            line = line.replace(line, "//" + getCurrentTime() + "//" + line)
+                print(line, end='')
 
     # find HW if datatype is HW (need special treatment
     # if found, check if TMP file available, open TMP file, don't delete, just comment previous line and add line from _HW.tmp
