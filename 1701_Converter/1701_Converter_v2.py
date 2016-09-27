@@ -298,8 +298,8 @@ def copyProgSize_ParamSize(dataType, outputFilename):
         for i, l in enumerate(f):
             pass
     fileSize = i + 1
-    print("file size is : {0}".format(fileSize))
-
+    #print("file size is : {0}".format(fileSize))
+    text_log.insert(END, getCurrentTime() + tmpDetComment + " : " + str(fileSize) + "\n")
     # find #define PRog_Size and insert fileSize
     for line in fileinput.input(outputFilename, inplace=1):
         if tmpDetString in line:
