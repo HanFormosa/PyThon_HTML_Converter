@@ -4,6 +4,8 @@ from tkinter import filedialog
 # from Tkinter import * #try this if in terminal don't work
 import datetime
 import fileinput
+import atexit
+
 
 
 root = Tk()
@@ -39,6 +41,7 @@ k3PROGRAMSIZE = "#define PROG_Size"
 k3PROGRAMSIZE_COMMENT = " //Program Code"
 k3PARAMSIZE = "#define PARA_Size"
 k3PARAMSIZE_COMMENT = " //Parameter Code"
+
 
 def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
     varType = int(dataType)  # depend on user selection, default is zero
@@ -133,13 +136,16 @@ def browseInput():
     entry_inputFileName.insert(END, inputFilename)
     # print("i am browse input")
     # text_log.insert(END, "i am browse input\n")
+    global configInputFilename
+    configInputFilename = entry_inputFileName.get()
 
 def browseOutput():
     outputFilename = filedialog.askopenfilename()
     entry_outputFileName.delete(0, END)
     entry_outputFileName.insert(END, outputFilename)
     # text_log.insert(END, "i am browse output\n")
-
+    global configOutputFilename
+    configOutputFilename = entry_outputFileName.get()
 
 def convertAction():
     # print("i am convert button")
@@ -154,35 +160,41 @@ def convertAction():
 
     # export tmp files selected using Extract method with filename as input
     if PROGRAM_STATE == 1:
-        text_log.insert(END, getCurrentTime() + "Extracting PROGRAM DATA\n")
+        text_log.insert(END, getCurrentTime() + "Extracting PROGRAM DATA...\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPROGRAM, entry_inputFileName.get())
         copyToOutput(kkPROGRAM, entry_outputFileName.get())
         copyProgSize_ParamSize(kkPROGRAM, entry_outputFileName.get())
+        if globalErrorFlag == 1:
+            text_log.insert(END, getCurrentTime() + "Error happened during extraction: PROGRAM DATA\n")
+        else:
+            text_log.insert(END, getCurrentTime() + "PROGRAM DATA...done\n")
     if PARAM_STATE == 1:
-        text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
+        text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA...\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
         copyToOutput(kkPARAM, entry_outputFileName.get())
         copyProgSize_ParamSize(kkPARAM,entry_outputFileName.get())
+        if globalErrorFlag == 1:
+            text_log.insert(END, getCurrentTime() + "Error happened during extraction: PARAMETER DATA\n")
+        else:
+            text_log.insert(END, getCurrentTime() + "PARAMETER DATA...done\n")
     if HW_STATE == 1:
-        text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
+        text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA...\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
         copyToOutput(kkHW, entry_outputFileName.get())
-
-    # TEST - try opening files with entry directory "filename"
-    # print("filename is {0}".format(entry_inputFileName.get()))
-
-    # how to copy from tmp files to the output filename (e.g. DSP_1701.h)
-
-    if globalErrorFlag == 1:
-        text_log.insert(END, getCurrentTime() + "Error happened during extraction\n")
+        if globalErrorFlag == 1:
+            text_log.insert(END, getCurrentTime() + "Error happened during extraction: HW CONFIG DATA\n")
+        else:
+            text_log.insert(END, getCurrentTime() + "HARDWARE CONFIG DATA...done\n")
 
 
 def getCurrentTime():
     dateStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S ")
     return dateStr
 
+
 def checkCheckBoxStates():
     print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
+
 
 def copyToOutput(dataType, outputFilename):
     varType = int(dataType)  # depend on user selection, default is zero
@@ -307,6 +319,27 @@ def copyProgSize_ParamSize(dataType, outputFilename):
                 line = line.replace(line, tmpDetString + "\t" + str(fileSize) + tmpDetComment + "\n")
         print(line, end='')
 
+def exit_handler():
+    print('My application is ending!')
+    # write to 1701_Converter.config file
+    writeFile = open("1701_Converter.config", "w")
+    writeFile.write(configInputFilename + "\n")
+    writeFile.write(configOutputFilename + "\n")
+    #writeFile.write(str(entry_inputFileName.get()))
+    #writeFile.write(str(entry_outputFileName.get()))
+    #writeFile.write(var1.get())  # PROGRAM Checkbox (bear in mind when reading, these are strings)
+    #writeFile.write(var2.get())  # PARAM checkbox
+    #writeFile.write(var3.get())  # HW CONFIG checkbox
+    writeFile.close()
+
+def initialiseFromConfig():
+    print(" i am init")
+
+    # remember to save to global after read file.
+    
+# ******* register handler at program exit*************
+atexit.register(exit_handler)
+
 # ******** label *********
 
 label_inputFileName = Label(text="Input")
@@ -349,6 +382,8 @@ button_Convert.grid(row=5, columnspan=3)
 
 text_log.grid(row=6, columnspan=3)
 
+
+
 # WINDOWS
 #entry_inputFileName.insert(0,"C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/MT-1000E V2_IC_1.h")
 #entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
@@ -356,6 +391,9 @@ text_log.grid(row=6, columnspan=3)
 # MAC
 entry_inputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/MT-1000E V2_IC_1.h")
 entry_outputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/DSP1701.c")
+
+
+
 
 root.mainloop()
 
