@@ -252,28 +252,6 @@ def copyToOutput(dataType, outputFilename):
                 line=line+tmpStr
             print(line, end='')
 
-        #for (i, line) in fileinput.FileInput(outputFilename, inplace=1):
-        #    if i == 124:
-        #        line = line.replace(line, line + "NEW_TEXT\n")
-         #   print(line, end='')
-            #if varTypeText in line:
-            #   line = line.replace(line, line + "NEW_TEXT\n")
-         #   print(line, end='')
-
-        #outputFile = open(outputFilename, "r+")
-       # for i, line in enumerate(outputFile):
-          #  if i == 124:
-          #      # 3rd line
-          #      print("writing file with iOpenParenthsis = {0}".format(iOpenParenthesis))
-         #       print(line)
-         #       outputFile.seek(outputFile.tell())
-        #        outputFile.write("new line1\n")
-#                #outputFile.write("new line2\n")
-#                #outputFile.write("new line3\n")
-                #break
-        #outputFile.close()
-    # find PARAM if datatype is PARAM
-    # if found, check if TMP file available, open TMP file, delete and replace with _PARAM.tmp content
 
     # find HW if datatype is HW (need special treatment
     # if found, check if TMP file available, open TMP file, don't delete, just comment previous line and add line from _HW.tmp
