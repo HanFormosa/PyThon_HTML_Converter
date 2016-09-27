@@ -108,7 +108,14 @@ def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
             iTo = iParenthesis - 1
 
         # extract by line number
+        myFile = open(filename, "r")
+        for i, line in enumerate(myFile):
+            if i >= int(iFrom) - 1 and i < int(iTo):
+                # copy to new file
+                writeFile.write(line)
 
+            elif i >= int(iTo):
+                break
         # file size is just total number of lines
         fileSize = iTo - iFrom + 1  # TODO: confirm is need to + 1, line number count starting with 1 or 0
         print("File Size is {0}".format(fileSize))
@@ -234,6 +241,15 @@ def copyToOutput(dataType, outputFilename):
         print(contents)
         # add new text in files
 
+        myinsert="""new line1\nnew line2\nnew line3"""
+        for line in fileinput.input(outputFilename,inplace=1):
+            linenum=fileinput.lineno()
+            #if linenum==1 or linenum>4 :
+            #    line=line.rstrip()
+            if linenum==iOpenParenthesis:
+                line=line+myinsert
+            print(line, end='')
+
         #for (i, line) in fileinput.FileInput(outputFilename, inplace=1):
         #    if i == 124:
         #        line = line.replace(line, line + "NEW_TEXT\n")
@@ -304,8 +320,13 @@ button_Convert.grid(row=5, columnspan=3)
 
 text_log.grid(row=6, columnspan=3)
 
-entry_inputFileName.insert(0,"C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/MT-1000E V2_IC_1.h")
-entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
+# WINDOWS
+#entry_inputFileName.insert(0,"C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/MT-1000E V2_IC_1.h")
+#entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
+
+# MAC
+entry_inputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/MT-1000E V2_IC_1.h")
+entry_outputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/DSP1701.c")
 
 root.mainloop()
 
