@@ -162,6 +162,7 @@ def convertAction():
         text_log.insert(END, getCurrentTime() + "Extracting PARAMETER DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkPARAM, entry_inputFileName.get())
         copyToOutput(kkPARAM, entry_outputFileName.get())
+        copyProgSize_ParamSize(kkPARAM,entry_outputFileName.get())
     if HW_STATE == 1:
         text_log.insert(END, getCurrentTime() + "Extracting HARDWARE CONFIG DATA\n")
         extractPROGRAM_PARAMETER_HWCONFIG(kkHW, entry_inputFileName.get())
