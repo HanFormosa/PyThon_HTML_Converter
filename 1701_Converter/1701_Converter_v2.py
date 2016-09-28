@@ -42,6 +42,12 @@ k3PROGRAMSIZE_COMMENT = " //Program Code"
 k3PARAMSIZE = "#define PARA_Size"
 k3PARAMSIZE_COMMENT = " //Parameter Code"
 
+# global init
+configInputFilename = ""
+configOutputFilename = ""
+configCheckboxPROGRAM = 0
+configCheckboxPARAM = 0
+configCheckboxHW = 0
 
 def extractPROGRAM_PARAMETER_HWCONFIG(dataType, filename):
     varType = int(dataType)  # depend on user selection, default is zero
@@ -341,8 +347,26 @@ def exit_handler():
     writeFile.close()
 
 def initialiseFromConfig():
-    print(" i am init")
-    
+
+    with open("1701_Converter.config") as f:
+        for i, l in enumerate(f):
+            if i == 0:
+                print(l.strip('\n'))
+                entry_inputFileName.insert(0, l.strip('n'))
+            elif i == 1:
+                print(l.strip('\n'))
+                entry_outputFileName.insert(0, l.strip('n'))
+            elif i == 2:
+                print(l.strip('\n'))
+                cbState = int(l.strip('n'))
+                if cbState == 1:
+                    var1.set(1)
+                else:
+                    var1.set(0)
+            elif i == 3:
+                print(l.strip('\n'))
+            else:
+                print(l.strip('\n'))
     # remember to save to global after read file.
 
 # ******* register handler at program exit*************
@@ -397,12 +421,15 @@ text_log.grid(row=6, columnspan=3)
 #entry_outputFileName.insert(0, "C:/_FORMOSA/GitLocal/PythonProjects/firstProject/1701_Converter/DSP1701.c")
 
 # MAC
-entry_inputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/MT-1000E V2_IC_1.h")
-entry_outputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/DSP1701.c")
+#entry_inputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/MT-1000E V2_IC_1.h")
+#entry_outputFileName.insert(0,"/Volumes/Macintosh HD/Formosa/PYThonProjects/PyThon_HTML_Converter/1701_Converter/DSP1701.c")
 
 
-
-
+# initialise from config file.
+initialiseFromConfig()
+# global configInputFilename
+# configInputFilename = entry_inputFileName.get()
+# configOutputFilename = entry_outputFileName.get()
 root.mainloop()
 
 # ******************** test copy ********************
