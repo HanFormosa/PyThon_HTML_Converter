@@ -192,8 +192,18 @@ def getCurrentTime():
     return dateStr
 
 
-def checkCheckBoxStates():
-    print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
+def storeCheckBoxStates(dataType):
+    # print("PROGRAM state {0}\nPARAM state {1}\nHW_CONFIG {2}\n ".format(var1.get(), var2.get(), var3.get()))
+    varType = int(dataType)
+    if varType == kkPROGRAM:
+        global configCheckboxPROGRAM
+        configCheckboxPROGRAM = var1.get()
+    elif varType == kkPARAM:
+        global configCheckboxPARAM
+        configCheckboxPARAM = var2.get()
+    elif varType == kkHW:
+        global configCheckboxHW
+        configCheckboxHW = var3.get()
 
 
 def copyToOutput(dataType, outputFilename):
@@ -325,18 +335,16 @@ def exit_handler():
     writeFile = open("1701_Converter.config", "w")
     writeFile.write(configInputFilename + "\n")
     writeFile.write(configOutputFilename + "\n")
-    #writeFile.write(str(entry_inputFileName.get()))
-    #writeFile.write(str(entry_outputFileName.get()))
-    #writeFile.write(var1.get())  # PROGRAM Checkbox (bear in mind when reading, these are strings)
-    #writeFile.write(var2.get())  # PARAM checkbox
-    #writeFile.write(var3.get())  # HW CONFIG checkbox
+    writeFile.write(str(configCheckboxPROGRAM) + "\n")  # PROGRAM Checkbox (bear in mind when reading, these are strings)
+    writeFile.write(str(configCheckboxPARAM) + "\n")  # PARAM checkbox
+    writeFile.write(str(configCheckboxHW) + "\n")  # HW CONFIG checkbox
     writeFile.close()
 
 def initialiseFromConfig():
     print(" i am init")
-
-    # remember to save to global after read file.
     
+    # remember to save to global after read file.
+
 # ******* register handler at program exit*************
 atexit.register(exit_handler)
 
@@ -362,11 +370,11 @@ button_Convert = Button(text="Convert", command=convertAction)
 
 # ****** Check button ***********
 var1 = IntVar()
-Checkbutton(root, text="PROGRAM", variable=var1).grid(row=2, sticky=W)
+Checkbutton(root, text="PROGRAM", variable=var1, command=lambda: storeCheckBoxStates(kkPROGRAM)).grid(row=2, sticky=W)
 var2 = IntVar()
-Checkbutton(root, text="PARAM", variable=var2).grid(row=3, sticky=W)
+Checkbutton(root, text="PARAM", variable=var2, command=lambda: storeCheckBoxStates(kkPARAM)).grid(row=3, sticky=W)
 var3 = IntVar()
-Checkbutton(root, text="HW CONFIG", variable=var3).grid(row=4, sticky=W)
+Checkbutton(root, text="HW CONFIG", variable=var3, command=lambda: storeCheckBoxStates(kkHW)).grid(row=4, sticky=W)
 
 # ****** positioning in grid *********
 
