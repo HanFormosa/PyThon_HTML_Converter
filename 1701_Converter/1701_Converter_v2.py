@@ -211,7 +211,6 @@ def storeCheckBoxStates(dataType):
         global configCheckboxHW
         configCheckboxHW = var3.get()
 
-
 def copyToOutput(dataType, outputFilename):
     varType = int(dataType)  # depend on user selection, default is zero
     if varType == kkPROGRAM:
@@ -339,8 +338,8 @@ def exit_handler():
     print('My application is ending!')
     # write to 1701_Converter.config file
     writeFile = open("1701_Converter.config", "w")
-    writeFile.write(configInputFilename + "\n")
-    writeFile.write(configOutputFilename + "\n")
+    writeFile.write(configInputFilename)
+    writeFile.write(configOutputFilename)
     writeFile.write(str(configCheckboxPROGRAM) + "\n")  # PROGRAM Checkbox (bear in mind when reading, these are strings)
     writeFile.write(str(configCheckboxPARAM) + "\n")  # PARAM checkbox
     writeFile.write(str(configCheckboxHW) + "\n")  # HW CONFIG checkbox
@@ -348,14 +347,23 @@ def exit_handler():
 
 def initialiseFromConfig():
 
+    # initialise global variable
+    global configInputFilename
+    global configOutputFilename
+    global configCheckboxPROGRAM
+    global configCheckboxPARAM
+    global configCheckboxHW
+
     with open("1701_Converter.config") as f:
         for i, l in enumerate(f):
             if i == 0:
                 print(l.strip('\n'))
                 entry_inputFileName.insert(0, l.strip('n'))
+                configInputFilename = entry_inputFileName.get()
             elif i == 1:
                 print(l.strip('\n'))
                 entry_outputFileName.insert(0, l.strip('n'))
+                configOutputFilename = entry_outputFileName.get()
             elif i == 2:
                 print(l.strip('\n'))
                 cbState = int(l.strip('n'))
@@ -363,6 +371,7 @@ def initialiseFromConfig():
                     var1.set(1)
                 else:
                     var1.set(0)
+                configCheckboxPROGRAM = cbState
             elif i == 3:
                 print(l.strip('\n'))
             else:
