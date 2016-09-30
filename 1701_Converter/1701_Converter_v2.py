@@ -5,7 +5,7 @@ from tkinter import filedialog
 import datetime
 import fileinput
 import atexit
-
+from shutil import copyfile
 
 
 root = Tk()
@@ -14,7 +14,7 @@ root = Tk()
 
 # ****** temporary variables ******
 # filename = "MT-1000E V2_IC_1.h"
-outputFilename = "DSP_1701.c"
+# outputFilename = "DSP_1701.c"
 
 globalErrorFlag = 0  # check this status on convert to see if there's any error
 
@@ -154,9 +154,8 @@ def browseOutput():
     configOutputFilename = entry_outputFileName.get()
 
 def convertAction():
-    # print("i am convert button")
-    # checkCheckBoxStates()
-    text_log.delete(1.0, END)
+    text_log.delete(1.0, END)  # clear text
+    doBackUpOutputFile()
     text_log.insert(END, getCurrentTime() + "Starting extraction\n")
 
     # check checkbox status
@@ -388,6 +387,15 @@ def initialiseFromConfig():
                 configCheckboxHW = cbState
     # remember to save to global after read file.
 
+def doBackUpOutputFile():
+    tmpDST = entry_outputFileName.get().strip("\n") + ".backup"
+    text_log.insert(END, getCurrentTime() + "Making backup file: {0}".format(tmpDST) + "\n")
+    try:
+        copyfile(entry_outputFileName.get(), tmpDST)
+    except IOError as e:
+        print("Destination file not writable. I/O error({0}): {1}".format(e.errno, e.strerror))
+        text_log.insert(END, getCurrentTime() + "Destination file not writable.: {0}\n".format(tmpDST))
+
 # ******* register handler at program exit*************
 atexit.register(exit_handler)
 
@@ -449,14 +457,7 @@ initialiseFromConfig()
 # global configInputFilename
 # configInputFilename = entry_inputFileName.get()
 # configOutputFilename = entry_outputFileName.get()
+
+
 root.mainloop()
 
-# ******************** test copy ********************
-#myinsert="""new line1\nnew line2\nnew line3"""
-#for line in fileinput.input("file",inplace=1):
-#    linenum=fileinput.lineno()
-#    if linenum==1 or linenum>4 :
-#        line=line.rstrip()
-#    if linenum==2:
-#        line=line+myinsert
-#    print line
