@@ -335,7 +335,7 @@ def copyProgSize_ParamSize(dataType, outputFilename):
         print(line, end='')
 
 def exit_handler():
-    print('My application is ending!')
+    # print('My application is ending!')
     # write to 1701_Converter.config file
     writeFile = open("1701_Converter.config", "w")
     writeFile.write(configInputFilename + "\n")
