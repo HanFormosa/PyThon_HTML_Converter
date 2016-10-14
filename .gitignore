@@ -1,25 +1,16 @@
-.idea/firstProject.iml
-.idea/modules.xml
+
 <<<<<<< HEAD
 _HWCONFIG.tmp
 _PARAM.tmp
 _PROGRAM.tmp
-1701_Converter.iml
 misc.xml
 modules.xml
 vcs.xml
 workspace.xml
 =======
 newwriteFile.txt
-1701_Converter.iml
 PARAM.txt
 PROGRAM.txt
-vcs.xml
-modules.xml
-misc.xml
-workspace.xml
-_HWCONFIG.tmp
-_PARAM.tmp
-_PROGRAM.tmp
 >>>>>>> e3318f001521277484dd78b892af87c6f96bfbef
-PyThon_HTML_Converter.iml
+*.iml
+1701_Converter/.idea/
