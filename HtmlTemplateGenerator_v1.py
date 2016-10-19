@@ -104,8 +104,32 @@ def doGenerate():
             print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
         else:
             # start writing file
-            strTemp = "test"
-            writeFile.write(strTemp)
+            # <!DOCTYPE html>
+            # <html lang="en">
+            # <body>
+            strPart1 = "<!DOCTYPE html>\n"
+            strPart2 = "<html lang=\"en\">\n"
+            strPart3 = "<body>\n"
+
+            writeFile.write(strPart1+strPart2+strPart3)
+
+            #  <h3 id="content">MODEL - Schematics/Layout</h3>
+            # Decide whether it's Schematic/Layouts or AP PRogram or ??
+            if entry_subitem1.get().upper() == "SCHEMATICS":
+                strTitleType = "Schematics/Layouts"
+            elif entry_subitem1.get().upper() == "":
+                strTitleType = "UNKNOWN"
+            else:
+                strTitleType = entry_subitem1.get()
+
+            strTitle = "<h3 id=\"content\">" + entry_modelName.get() + " - " + strTitleType + "</h3>\n"
+
+            writeFile.write(strTitle)
+
+            strPart1 = "<p>Content</p>\n"
+            strPart2 = "<ol>\n"
+            # make for loop from item 1 to 7. if not empty, write to file, if empty, stop loop. need to warn if nothing is inside?
+
 
 
 def init():
@@ -117,6 +141,9 @@ def init():
     entry_item6.insert(END, "MAIN POWER")
     entry_item7.insert(END, "MAIN POWER")
 
+    entry_fileName.insert(END, "SVS1000D")
+    entry_modelName.insert(END, "SVS-1000D")
+    entry_subitem1.insert(END, "Schematics")
 # ******** label *********
 label_fileName = Label(text="File Name (.html):")
 label_modelName = Label(text="Model Name:")
