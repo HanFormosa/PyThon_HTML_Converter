@@ -12,7 +12,7 @@ Model Name: [________]
 7.                                     Button[Make Tag]
 
 Each sections contain: (if enter nothing then no subtitles for each section)
-1. [Schematics]
+1. [Schematics]   can be Firmware, AP Test and ?
 2. [Layouts]
 
             Button [Generate]
