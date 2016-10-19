@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 root = Tk()
 
@@ -92,6 +93,29 @@ def makeTag():
     
 def doGenerate():
     print(" i am generate")
+    writeFilename = entry_fileName.get() + ".html"
+    if entry_fileName.get() == "":
+        messagebox.showerror("Error", "No filename specified")
+    else:
+        # filename is valid
+        try:
+            writeFile = open(writeFilename, "w")
+        except IOError as e:
+            print("Cannot open due to I/O error({0}): {1}".format(e.errno, e.strerror))
+        else:
+            # start writing file
+            strTemp = "test"
+            writeFile.write(strTemp)
+
+
+def init():
+    entry_item1.insert(END, "MAIN POWER")
+    entry_item2.insert(END, "MAIN POWER")
+    entry_item3.insert(END, "MAIN POWER")
+    entry_item4.insert(END, "MAIN POWER")
+    entry_item5.insert(END, "MAIN POWER")
+    entry_item6.insert(END, "MAIN POWER")
+    entry_item7.insert(END, "MAIN POWER")
 
 # ******** label *********
 label_fileName = Label(text="File Name (.html):")
@@ -193,4 +217,6 @@ label_subitem2.grid(row=12, sticky=E)
 entry_subitem2.grid(row=12, column=1)
 
 button_generate.grid(row=13, columnspan=4)
+
+init()
 root.mainloop()
