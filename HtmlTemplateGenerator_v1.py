@@ -102,22 +102,29 @@ def makeTag():
 def insertTable(item):
     if item == kITEM1:
         strItem = entry_item1.get()
+        strItemTag = entry_item1_tag.get()
     elif item == kITEM2:
         strItem = entry_item2.get()
+        strItemTag = entry_item2_tag.get()
     elif item == kITEM3:
         strItem = entry_item3.get()
+        strItemTag = entry_item3_tag.get()
     elif item == kITEM4:
         strItem = entry_item4.get()
+        strItemTag = entry_item4_tag.get()
     elif item == kITEM5:
         strItem  = entry_item5.get()
+        strItemTag = entry_item5_tag.get()
     elif item == kITEM6:
         strItem = entry_item6.get()
+        strItemTag = entry_item6_tag.get()
     elif item == kITEM7:
         strItem = entry_item7.get()
+        strItemTag = entry_item7_tag.get()
     else:
         strItem = ""
     # ============ TAble generation item 1 =======================
-    strTable1 = "<h3 id=\"" + entry_item1_tag.get() + "\"><b>1." + entry_item1.get() + "</b></h3>\n"
+    strTable1 = "<h3 id=\"" + strItemTag.strip("#") + "\"><b>" + str(item+1) + "." + strItem + "</b></h3>\n"
     if entry_subitem1.get().upper() == "SCHEMATICS":
         strTable2 = "<p><u>Schematics</u></p>\n"
         strTable3 = "<table>\n"
@@ -153,13 +160,14 @@ def insertTable(item):
 
         strTotalTable2 = strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
         # writeFile.write(strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-
-        strTotal = strTotalTable1 + strTotalTable2
+        strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
+        strTotalEnd2 = "<hr>\n\n"
+        strTotal = strTotalTable1 + strTotalTable2 + strTotalEnd1 + strTotalEnd2
 
         return strTotal
     else:
         # when it's not schematics
-        strTable2 = "<p><u>" + entry_subitem1.get() + "</u></p>\n"
+        strTable2 = "<p><u>" + strItem + "</u></p>\n"
         strTable3 = "<table>\n"
         #    strTable4 = "\t<table>\n"
         strTable5 = "\t<tr>\n"
@@ -174,8 +182,11 @@ def insertTable(item):
         strTable14 = "\t</tr>\n"
         strTable15 = "</table>\n\n"
 
+        strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
+        strTotalEnd2 = "<hr>\n\n"
         # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-        strTotal = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+        strTotal = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15 + strTotalEnd1 + strTotalEnd2
+
         return strTotal
 
 def doGenerate():
@@ -251,6 +262,19 @@ def doGenerate():
 
             strReturned = insertTable(kITEM1)
             writeFile.write(strReturned)
+            strReturned = insertTable(kITEM2)
+            writeFile.write(strReturned)
+            strReturned = insertTable(kITEM3)
+            writeFile.write(strReturned)
+            strReturned = insertTable(kITEM4)
+            writeFile.write(strReturned)
+            strReturned = insertTable(kITEM5)
+            writeFile.write(strReturned)
+            strReturned = insertTable(kITEM6)
+            writeFile.write(strReturned)
+            strReturned = insertTable(kITEM7)
+            writeFile.write(strReturned)
+
             # ==================  END body =================
             strEnd1 = "</body>\n"
             strEnd2 = "</html>\n"
