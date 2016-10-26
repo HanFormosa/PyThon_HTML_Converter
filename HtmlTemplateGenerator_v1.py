@@ -2,6 +2,14 @@ from tkinter import *
 from tkinter import messagebox
 
 root = Tk()
+# ========= constants ==========
+kITEM1 = 0
+kITEM2 = 1
+kITEM3 = 2
+kITEM4 = 3
+kITEM5 = 4
+kITEM6 = 5
+kITEM7 = 6
 
 def makeTag():
 
@@ -90,12 +98,90 @@ def makeTag():
         else:
             # first letter of each word (two)
             entry_item7_tag.insert(END, "#" + entryText[0] + entryText[spaceIndex + 1])
-    
+
+def insertTable(item,filename):
+    writeFile = open(filename, "w")
+    if item == kITEM1:
+        strItem = entry_item1.get()
+    elif item == kITEM2:
+        strItem = entry_item2.get()
+    elif item == kITEM3:
+        strItem = entry_item3.get()
+    elif item == kITEM4:
+        strItem = entry_item4.get()
+    elif item == kITEM5:
+        strItem  = entry_item5.get()
+    elif item == kITEM6:
+        strItem = entry_item6.get()
+    elif item == kITEM7:
+        strItem = entry_item7.get()
+    else:
+        strItem = ""
+    # ============ TAble generation item 1 =======================
+    strTable1 = "<h3 id=\"" + entry_item1_tag.get() + "\"><b>1." + entry_item1.get() + "</b></h3>\n"
+    if entry_subitem1.get().upper() == "SCHEMATICS":
+        strTable2 = "<p><u>Schematics</u></p>\n"
+        strTable3 = "<table>\n"
+        #    strTable4 = "\t<table>\n"
+        strTable5 = "\t<tr>\n"
+        strTable6 = "\t\t<th>Version</th>\n"
+        strTable7 = "\t\t<th>Date</th>\n"
+        strTable8 = "\t\t<th>Release Note</th>\n"
+        strTable9 = "\t</tr>\n"
+        strTable10 = "\t<tr>\n"
+        strTable11 = "\t\t<td>N/A</td>\n"
+        strTable12 = "\t\t<td>N/A</td>\n"
+        strTable13 = "\t\t<td>N/A</td>\n"
+        strTable14 = "\t</tr>\n"
+        strTable15 = "</table>\n\n"
+
+        writeFile.write(
+            strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+        strTable2 = "<p><u>Layouts</u></p>\n"
+        strTable3 = "<table>\n"
+        #    strTable4 = "\t<table>\n"
+        strTable5 = "\t<tr>\n"
+        strTable6 = "\t\t<th>Version</th>\n"
+        strTable7 = "\t\t<th>Date</th>\n"
+        strTable8 = "\t\t<th>Release Note</th>\n"
+        strTable9 = "\t</tr>\n"
+        strTable10 = "\t<tr>\n"
+        strTable11 = "\t\t<td>N/A</td>\n"
+        strTable12 = "\t\t<td>N/A</td>\n"
+        strTable13 = "\t\t<td>N/A</td>\n"
+        strTable14 = "\t</tr>\n"
+        strTable15 = "</table>\n\n"
+
+        writeFile.write(
+            strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+    else:
+        # when it's not schematics
+        strTable2 = "<p><u>" + entry_subitem1.get() + "</u></p>\n"
+        strTable3 = "<table>\n"
+        #    strTable4 = "\t<table>\n"
+        strTable5 = "\t<tr>\n"
+        strTable6 = "\t\t<th>Version</th>\n"
+        strTable7 = "\t\t<th>Date</th>\n"
+        strTable8 = "\t\t<th>Release Note</th>\n"
+        strTable9 = "\t</tr>\n"
+        strTable10 = "\t<tr>\n"
+        strTable11 = "\t\t<td>N/A</td>\n"
+        strTable12 = "\t\t<td>N/A</td>\n"
+        strTable13 = "\t\t<td>N/A</td>\n"
+        strTable14 = "\t</tr>\n"
+        strTable15 = "</table>\n\n"
+
+        writeFile.write(
+            strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+
+
 def doGenerate():
     print(" i am generate")
     writeFilename = entry_fileName.get() + ".html"
     if entry_fileName.get() == "":
         messagebox.showerror("Error", "No filename specified")
+    elif entry_item1_tag == "":
+        messagebox.showerror("Error", "Please press Make Tag button")
     else:
         # filename is valid
         try:
@@ -108,10 +194,13 @@ def doGenerate():
             # <html lang="en">
             # <body>
             strPart1 = "<!DOCTYPE html>\n"
-            strPart2 = "<html lang=\"en\">\n"
-            strPart3 = "<body>\n"
+            strPart2 = "<html>\n"
+            strPart3 = "<head>\n"
+            strPart4 = "<link rel=\"stylesheet\" type=\"text/css\" href=\"_common.css\">\n"
+            strPart5 = "</head>\n"
+            strPart6 = "<body>\n\n"
 
-            writeFile.write(strPart1+strPart2+strPart3)
+            writeFile.write(strPart1+strPart2+strPart3+strPart4+strPart5+strPart6)
 
             #  <h3 id="content">MODEL - Schematics/Layout</h3>
             # Decide whether it's Schematic/Layouts or AP PRogram or ??
@@ -122,24 +211,57 @@ def doGenerate():
             else:
                 strTitleType = entry_subitem1.get()
 
-            strTitle = "<h3 id=\"content\">" + entry_modelName.get() + " - " + strTitleType + "</h3>\n"
+            strTitle = "<h3 id=\"content\">" + entry_modelName.get() + " - " + strTitleType + "</h3>\n\n"
 
             writeFile.write(strTitle)
 
-            strPart1 = "<p>Content</p>\n"
-            strPart2 = "<ol>\n"
+            strPart1 = "<p><b>&#30446;&#37636;</b><p>\n"
+            strPart2 = "<ol type=\"1\">\n"
+
+            writeFile.write(strPart1 + strPart2)
             # make for loop from item 1 to 7. if not empty, write to file, if empty, stop loop. need to warn if nothing is inside?
+            if entry_item1.get() != "" or entry_item1_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item1_tag.get() + "\">" + entry_item1.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item2.get() != "" or entry_item2_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item2_tag.get() + "\">" + entry_item2.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item3.get() != "" or entry_item3_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item3_tag.get() + "\">" + entry_item3.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item4.get() != "" or entry_item4_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item4_tag.get() + "\">" + entry_item4.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item5.get() != "" or entry_item5_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item5_tag.get() + "\">" + entry_item5.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item6.get() != "" or entry_item6_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item6_tag.get() + "\">" + entry_item6.get() + "</a></li>\n"
+                writeFile.write(strWrite)
+            if entry_item7.get() != "" or entry_item7_tag != "":
+                strWrite = "\t<li><a href=\"" + entry_item7_tag.get() + "\">" + entry_item7.get() + "</a></li>\n"
+                writeFile.write(strWrite)
 
+            strPart1 = "</ol>\n\n"
+            strPart2 = "<hr>\n\n"
+            writeFile.write(strPart1 + strPart2)
 
+            insertTable(kITEM1, writeFilename)
+
+            # ==================  END body =================
+            strEnd1 = "</body>\n"
+            strEnd2 = "</html>\n"
+            writeFile.write(strEnd1 + strEnd2)
+            writeFile.close()
 
 def init():
     entry_item1.insert(END, "MAIN POWER")
-    entry_item2.insert(END, "MAIN POWER")
-    entry_item3.insert(END, "MAIN POWER")
-    entry_item4.insert(END, "MAIN POWER")
-    entry_item5.insert(END, "MAIN POWER")
-    entry_item6.insert(END, "MAIN POWER")
-    entry_item7.insert(END, "MAIN POWER")
+    entry_item2.insert(END, "BGM")
+    entry_item3.insert(END, "POWER SUPPLY")
+    entry_item4.insert(END, "POWER AMP")
+    entry_item5.insert(END, "STK")
+    entry_item6.insert(END, "PRIORITY")
+    entry_item7.insert(END, "ETHERNET")
 
     entry_fileName.insert(END, "SVS1000D")
     entry_modelName.insert(END, "SVS-1000D")
@@ -188,9 +310,7 @@ entry_item7_tag = Entry(root)
 
 # in each section (Schematics/Layout or none)
 entry_subitem1 = Entry(root)
-entry_subitem1_tag = Entry(root)
 entry_subitem2 = Entry(root)
-entry_subitem2_tag = Entry(root)
 
 # *******Buttons ******* TODO: add command
 button_MakeTag = Button(text="Make Tag", command=makeTag)
