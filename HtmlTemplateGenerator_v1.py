@@ -99,8 +99,7 @@ def makeTag():
             # first letter of each word (two)
             entry_item7_tag.insert(END, "#" + entryText[0] + entryText[spaceIndex + 1])
 
-def insertTable(item,filename):
-    writeFile = open(filename, "w")
+def insertTable(item):
     if item == kITEM1:
         strItem = entry_item1.get()
     elif item == kITEM2:
@@ -135,8 +134,8 @@ def insertTable(item,filename):
         strTable14 = "\t</tr>\n"
         strTable15 = "</table>\n\n"
 
-        writeFile.write(
-            strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+        strTotalTable1 = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+        # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
         strTable2 = "<p><u>Layouts</u></p>\n"
         strTable3 = "<table>\n"
         #    strTable4 = "\t<table>\n"
@@ -152,8 +151,12 @@ def insertTable(item,filename):
         strTable14 = "\t</tr>\n"
         strTable15 = "</table>\n\n"
 
-        writeFile.write(
-            strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+        strTotalTable2 = strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+        # writeFile.write(strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+
+        strTotal = strTotalTable1 + strTotalTable2
+
+        return strTotal
     else:
         # when it's not schematics
         strTable2 = "<p><u>" + entry_subitem1.get() + "</u></p>\n"
@@ -171,9 +174,9 @@ def insertTable(item,filename):
         strTable14 = "\t</tr>\n"
         strTable15 = "</table>\n\n"
 
-        writeFile.write(
-            strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-
+        # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+        strTotal = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+        return strTotal
 
 def doGenerate():
     print(" i am generate")
@@ -246,8 +249,8 @@ def doGenerate():
             strPart2 = "<hr>\n\n"
             writeFile.write(strPart1 + strPart2)
 
-            insertTable(kITEM1, writeFilename)
-
+            strReturned = insertTable(kITEM1)
+            writeFile.write(strReturned)
             # ==================  END body =================
             strEnd1 = "</body>\n"
             strEnd2 = "</html>\n"
