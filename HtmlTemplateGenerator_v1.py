@@ -123,72 +123,74 @@ def insertTable(item):
         strItemTag = entry_item7_tag.get()
     else:
         strItem = ""
-    # ============ TAble generation item 1 =======================
-    strTable1 = "<h3 id=\"" + strItemTag.strip("#") + "\"><b>" + str(item+1) + "." + strItem + "</b></h3>\n"
-    if entry_subitem1.get().upper() == "SCHEMATICS":
-        strTable2 = "<p><u>Schematics</u></p>\n"
-        strTable3 = "<table>\n"
-        #    strTable4 = "\t<table>\n"
-        strTable5 = "\t<tr>\n"
-        strTable6 = "\t\t<th>Version</th>\n"
-        strTable7 = "\t\t<th>Date</th>\n"
-        strTable8 = "\t\t<th>Release Note</th>\n"
-        strTable9 = "\t</tr>\n"
-        strTable10 = "\t<tr>\n"
-        strTable11 = "\t\t<td>N/A</td>\n"
-        strTable12 = "\t\t<td>N/A</td>\n"
-        strTable13 = "\t\t<td>N/A</td>\n"
-        strTable14 = "\t</tr>\n"
-        strTable15 = "</table>\n\n"
+    # ============ TAble generation item  =======================
+    # only execute if  entry item is  not empty
+    if strItem != "":
+        strTable1 = "<h3 id=\"" + strItemTag.strip("#") + "\"><b>" + str(item + 1) + "." + strItem + "</b></h3>\n"
+        if entry_subitem1.get().upper() == "SCHEMATICS":
+            strTable2 = "<p><u>Schematics</u></p>\n"
+            strTable3 = "<table>\n"
+            #    strTable4 = "\t<table>\n"
+            strTable5 = "\t<tr>\n"
+            strTable6 = "\t\t<th>Version</th>\n"
+            strTable7 = "\t\t<th>Date</th>\n"
+            strTable8 = "\t\t<th>Release Note</th>\n"
+            strTable9 = "\t</tr>\n"
+            strTable10 = "\t<tr>\n"
+            strTable11 = "\t\t<td>N/A</td>\n"
+            strTable12 = "\t\t<td>N/A</td>\n"
+            strTable13 = "\t\t<td>N/A</td>\n"
+            strTable14 = "\t</tr>\n"
+            strTable15 = "</table>\n\n"
 
-        strTotalTable1 = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
-        # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-        strTable2 = "<p><u>Layouts</u></p>\n"
-        strTable3 = "<table>\n"
-        #    strTable4 = "\t<table>\n"
-        strTable5 = "\t<tr>\n"
-        strTable6 = "\t\t<th>Version</th>\n"
-        strTable7 = "\t\t<th>Date</th>\n"
-        strTable8 = "\t\t<th>Release Note</th>\n"
-        strTable9 = "\t</tr>\n"
-        strTable10 = "\t<tr>\n"
-        strTable11 = "\t\t<td>N/A</td>\n"
-        strTable12 = "\t\t<td>N/A</td>\n"
-        strTable13 = "\t\t<td>N/A</td>\n"
-        strTable14 = "\t</tr>\n"
-        strTable15 = "</table>\n\n"
+            strTotalTable1 = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+            # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+            strTable2 = "<p><u>Layouts</u></p>\n"
+            strTable3 = "<table>\n"
+            #    strTable4 = "\t<table>\n"
+            strTable5 = "\t<tr>\n"
+            strTable6 = "\t\t<th>Version</th>\n"
+            strTable7 = "\t\t<th>Date</th>\n"
+            strTable8 = "\t\t<th>Release Note</th>\n"
+            strTable9 = "\t</tr>\n"
+            strTable10 = "\t<tr>\n"
+            strTable11 = "\t\t<td>N/A</td>\n"
+            strTable12 = "\t\t<td>N/A</td>\n"
+            strTable13 = "\t\t<td>N/A</td>\n"
+            strTable14 = "\t</tr>\n"
+            strTable15 = "</table>\n\n"
 
-        strTotalTable2 = strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
-        # writeFile.write(strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-        strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
-        strTotalEnd2 = "<hr>\n\n"
-        strTotal = strTotalTable1 + strTotalTable2 + strTotalEnd1 + strTotalEnd2
+            strTotalTable2 = strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15
+            # writeFile.write(strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+            strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
+            strTotalEnd2 = "<hr>\n\n"
+            strTotal = strTotalTable1 + strTotalTable2 + strTotalEnd1 + strTotalEnd2
 
-        return strTotal
+            return strTotal
+        else:
+            # when it's not schematics
+            strTable3 = "<table>\n"
+            #    strTable4 = "\t<table>\n"
+            strTable5 = "\t<tr>\n"
+            strTable6 = "\t\t<th>Version</th>\n"
+            strTable7 = "\t\t<th>Date</th>\n"
+            strTable8 = "\t\t<th>Release Note</th>\n"
+            strTable9 = "\t</tr>\n"
+            strTable10 = "\t<tr>\n"
+            strTable11 = "\t\t<td>N/A</td>\n"
+            strTable12 = "\t\t<td>N/A</td>\n"
+            strTable13 = "\t\t<td>N/A</td>\n"
+            strTable14 = "\t</tr>\n"
+            strTable15 = "</table>\n\n"
+
+            strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
+            strTotalEnd2 = "<hr>\n\n"
+            # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
+            strTotal = strTable1 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15 + strTotalEnd1 + strTotalEnd2
+
+            return strTotal
     else:
-        # when it's not schematics
-        strTable2 = "<p><u>" + strItem + "</u></p>\n"
-        strTable3 = "<table>\n"
-        #    strTable4 = "\t<table>\n"
-        strTable5 = "\t<tr>\n"
-        strTable6 = "\t\t<th>Version</th>\n"
-        strTable7 = "\t\t<th>Date</th>\n"
-        strTable8 = "\t\t<th>Release Note</th>\n"
-        strTable9 = "\t</tr>\n"
-        strTable10 = "\t<tr>\n"
-        strTable11 = "\t\t<td>N/A</td>\n"
-        strTable12 = "\t\t<td>N/A</td>\n"
-        strTable13 = "\t\t<td>N/A</td>\n"
-        strTable14 = "\t</tr>\n"
-        strTable15 = "</table>\n\n"
-
-        strTotalEnd1 = "<p>[<a href=\"#content\">Top</a>]</p>\n\n"
-        strTotalEnd2 = "<hr>\n\n"
-        # writeFile.write(strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15)
-        strTotal = strTable1 + strTable2 + strTable3 + strTable5 + strTable6 + strTable7 + strTable8 + strTable9 + strTable10 + strTable11 + strTable12 + strTable13 + strTable14 + strTable15 + strTotalEnd1 + strTotalEnd2
-
-        return strTotal
-
+        return ""
 def doGenerate():
     print(" i am generate")
     writeFilename = entry_fileName.get() + ".html"
@@ -261,19 +263,32 @@ def doGenerate():
             writeFile.write(strPart1 + strPart2)
 
             strReturned = insertTable(kITEM1)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM2)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM3)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM4)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM5)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM6)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
+
             strReturned = insertTable(kITEM7)
-            writeFile.write(strReturned)
+            if strReturned != "":
+                writeFile.write(strReturned)
 
             # ==================  END body =================
             strEnd1 = "</body>\n"
