@@ -192,7 +192,7 @@ def insertTable(item):
     else:
         return ""
 def doGenerate():
-    print(" i am generate")
+    print("File generated: {0}.html".format(entry_fileName.get()))
     writeFilename = entry_fileName.get() + ".html"
     if entry_fileName.get() == "":
         messagebox.showerror("Error", "No filename specified")
