@@ -3,7 +3,7 @@ from tkinter import *
 root=Tk()
 
 sizex = 1000
-sizey = 400
+sizey = 500
 posx  = 0
 posy  = 0
 root.wm_geometry("%dx%d+%d+%d" % (sizex, sizey, posx, posy))
@@ -21,7 +21,7 @@ def myfunction(event):
 
 def myClick():
     del labels[:] # remove any previous labels from if the callback was called before
-    for i in range(80):
+    for i in range(70):
         labels.append(Label(frame, text=str(i+1)))
         labels[i].grid(row= i, column=0)
 
@@ -65,9 +65,17 @@ def extract():
                     entries_Address[i].insert(0, hex_address)
                     break
 
-
-myframe = Frame(root, width=400, height=300, bd=2, relief=GROOVE)
-myframe.place(x=10, y=10)
+def convert():
+    text_log.delete(1.0, END)  # clear text
+    with open("DSP_ALIAS.txt") as f:
+        for i, l in enumerate(f):
+            pass
+    totalline = i + 1
+    for i in range(totalline):
+        myStr = "#define\t" + entries_Variable[i].get() + "\t" + entries_Address[i].get() + "\n"
+        text_log.insert(END, myStr)
+myframe = Frame(root, width=400, height=500, bd=2, relief=GROOVE)
+myframe.grid(row=0, column=0)
 
 canvas = Canvas(myframe)
 frame = Frame(canvas)
@@ -80,17 +88,20 @@ canvas.create_window((0, 0), window=frame, anchor='nw')
 frame.bind("<Configure>", myfunction)
 
 
-mybutton=Button(root,text="OK",command=myClick)
-mybutton.place(x=10,y=320)
+#mybutton=Button(root,text="OK",command=myClick)
+#mybutton.grid(row=1, column=0)
 
-mybutton2=Button(root,text="Change",command=readVariableList)
-mybutton2.place(x=10,y=340)
+myClick()
+
+mybutton2=Button(root,text="Read",command=readVariableList)
+mybutton2.grid(row=2, column=0)
 
 buttonExtract=Button(root,text="Extract",command=extract)
-buttonExtract.place(x=10, y=380)
-#myvalue=Entry(root)
-#myvalue.place(x=450,y=10)
+buttonExtract.grid(row=3, column=0)
+
+buttonConvert=Button(root, text="Convert",command=convert)
+buttonConvert.grid(row=4, column=0)
 
 text_log = Text(root, height=20, width=50)
-text_log.place(x=600,y=10)
+text_log.grid(row=0, column=1)
 root.mainloop()
