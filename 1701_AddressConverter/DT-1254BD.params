@@ -898,7 +898,7 @@ Parameter Data :
 
 Cell Name         = Crossover.Cross_Lowpass_24dB
 Parameter Name    = EQ1940SingleS80B1
-Parameter Address = 70
+Parameter Address = 68
 Parameter Value   = 7.08103179931641E-05
 Parameter Data :
 0x00 ,	0x00 ,	0x02 ,	0x52 ,	
@@ -907,7 +907,7 @@ Parameter Data :
 
 Cell Name         = Crossover.Cross_Lowpass_24dB
 Parameter Name    = EQ1940SingleS81B1
-Parameter Address = 71
+Parameter Address = 69
 Parameter Value   = 0.000141620635986328
 Parameter Data :
 0x00 ,	0x00 ,	0x04 ,	0xA4 ,	
@@ -916,7 +916,7 @@ Parameter Data :
 
 Cell Name         = Crossover.Cross_Lowpass_24dB
 Parameter Name    = EQ1940SingleS82B1
-Parameter Address = 72
+Parameter Address = 70
 Parameter Value   = 7.08103179931641E-05
 Parameter Data :
 0x00 ,	0x00 ,	0x02 ,	0x52 ,	
@@ -925,7 +925,7 @@ Parameter Data :
 
 Cell Name         = Crossover.Cross_Lowpass_24dB
 Parameter Name    = EQ1940SingleS81A1
-Parameter Address = 73
+Parameter Address = 71
 Parameter Value   = 1.98690974712372
 Parameter Data :
 0x00 ,	0xFE ,	0x53 ,	0x0F ,	
@@ -934,7 +934,7 @@ Parameter Data :
 
 Cell Name         = Crossover.Cross_Lowpass_24dB
 Parameter Name    = EQ1940SingleS82A1
-Parameter Address = 74
+Parameter Address = 72
 Parameter Value   = -0.987192988395691
 Parameter Data :
 0x0F ,	0x81 ,	0xA3 ,	0xA9 ,	
@@ -1033,7 +1033,7 @@ Parameter Data :
 
 Cell Name         = Crossover.XOVER_LF_SW
 Parameter Name    = monoMuxSwSlew3coeffname
-Parameter Address = 77
+Parameter Address = 75
 Parameter Value   = 0
 Parameter Data :
 0x00, 0x00, 0x00, 0x00, 
@@ -1042,46 +1042,11 @@ Parameter Data :
 
 Cell Name         = Crossover.XOVER_HF_SW
 Parameter Name    = StMuxSwSlew1coeffname
-Parameter Address = 69
+Parameter Address = 67
 Parameter Value   = 0
 Parameter Data :
 0x00, 0x00, 0x00, 0x00, 
 
-
-
-Cell Name         = Crossover.PeakMeterReadEnvIn
-Parameter Name    = MonoEnvelopePeakAlg2hold
-Parameter Address = 67
-Parameter Value   = 0
-Parameter Data :
-0x00 ,	0x00 ,	0x00 ,	0x00 ,	
-
-
-
-Cell Name         = Crossover.PeakMeterReadEnvIn
-Parameter Name    = MonoEnvelopePeakAlg2decay
-Parameter Address = 68
-Parameter Value   = 2.14576721191406E-06
-Parameter Data :
-0x00 ,	0x00 ,	0x00 ,	0x12 ,	
-
-
-
-Cell Name         = ReadBack3
-Parameter Name    = ReadBackAlg4
-Parameter Address = 2074
-Readback Address = 0
-Parameter Data :
-0x04 ,	0x2A ,	
-
-
-Cell Name         = ReadBack3
-Parameter Name    = ReadBackAlg4
-Parameter Address = 2074
-Readback Address = 0
-Parameter Value   = 0
-Parameter Data :
-0x00 ,	0x00 ,	0x00 ,	
 
 
 Cell Name         = Internal Lowpass.Int_LPF1
@@ -1545,7 +1510,7 @@ Parameter Data :
 
 Cell Name         = SubVolume
 Parameter Name    = SWGain1940DBAlg1target
-Parameter Address = 83
+Parameter Address = 81
 Parameter Value   = 1
 Parameter Data :
 0x00 ,	0x80 ,	0x00 ,	0x00 ,	
@@ -1554,7 +1519,7 @@ Parameter Data :
 
 Cell Name         = SubVolume
 Parameter Name    = SWGain1940DBAlg1step
-Parameter Address = 84
+Parameter Address = 82
 Parameter Value   = 0.000244140625
 Parameter Data :
 0x00 ,	0x00 ,	0x08 ,	0x00 ,	
@@ -1581,7 +1546,7 @@ Parameter Data :
 
 Cell Name         = Sat_Mute
 Parameter Name    = MuteSWSlewAlg2mute
-Parameter Address = 80
+Parameter Address = 78
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
@@ -1590,7 +1555,7 @@ Parameter Data :
 
 Cell Name         = Sat_Mute
 Parameter Name    = MuteSWSlewAlg2step
-Parameter Address = 81
+Parameter Address = 79
 Parameter Value   = 0.0009765625
 Parameter Data :
 0x00, 0x00, 0x20, 0x00, 
@@ -1778,7 +1743,7 @@ Parameter Data :
 
 Cell Name         = Inv1
 Parameter Name    = EQ1940Invert1gain
-Parameter Address = 78
+Parameter Address = 76
 Parameter Value   = -1
 Parameter Data :
 0x0F, 0x80, 0x00, 0x00, 
@@ -1787,7 +1752,7 @@ Parameter Data :
 
 Cell Name         = Inv2
 Parameter Name    = EQ1940Invert2gain
-Parameter Address = 79
+Parameter Address = 77
 Parameter Value   = -1
 Parameter Data :
 0x0F, 0x80, 0x00, 0x00, 
@@ -1841,7 +1806,7 @@ Parameter Data :
 
 Cell Name         = L Delay
 Parameter Name    = VoltageControlledDelay1940NoZipAlgwLimit2buffersize
-Parameter Address = 75
+Parameter Address = 73
 Parameter Value   = 480
 Parameter Data :
 0x00, 0x00, 0x01, 0xE0, 
@@ -1850,7 +1815,7 @@ Parameter Data :
 
 Cell Name         = R Delay
 Parameter Name    = VoltageControlledDelay1940NoZipAlgwLimit3buffersize
-Parameter Address = 76
+Parameter Address = 74
 Parameter Value   = 480
 Parameter Data :
 0x00, 0x00, 0x01, 0xE0, 
@@ -1931,11 +1896,46 @@ Parameter Data :
 
 Cell Name         = DCB1
 Parameter Name    = DCBlockAlgDoublePrec1pole
-Parameter Address = 82
+Parameter Address = 80
 Parameter Value   = 0.999899983406067
 Parameter Data :
 0x00, 0x7F, 0xFC, 0xB9, 
 
+
+
+Cell Name         = PeakMeterReadEnvIn
+Parameter Name    = MonoEnvelopePeakAlg2hold
+Parameter Address = 83
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
+
+
+
+Cell Name         = PeakMeterReadEnvIn
+Parameter Name    = MonoEnvelopePeakAlg2decay
+Parameter Address = 84
+Parameter Value   = 2.14576721191406E-06
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	0x12 ,	
+
+
+
+Cell Name         = ReadBack3
+Parameter Name    = ReadBackAlg4
+Parameter Address = 2074
+Readback Address = 0
+Parameter Data :
+0x06 ,	0x42 ,	
+
+
+Cell Name         = ReadBack3
+Parameter Name    = ReadBackAlg4
+Parameter Address = 2074
+Readback Address = 0
+Parameter Value   = 0
+Parameter Data :
+0x00 ,	0x00 ,	0x00 ,	
 
 
 Parameter data for: IC 1 (Hexadecimal format starting at parameter address 0)
@@ -2008,8 +2008,6 @@ See also DT-1254BD.hex file
 0x00 , 	0xFE , 	0x4F , 	0xAF , 	
 0x0F , 	0x81 , 	0xA6 , 	0xE4 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x00 , 	0x12 , 	
-0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x02 , 	0x52 , 	
 0x00 , 	0x00 , 	0x04 , 	0xA4 , 	
 0x00 , 	0x00 , 	0x02 , 	0x52 , 	
@@ -2025,6 +2023,8 @@ See also DT-1254BD.hex file
 0x00 , 	0x7F , 	0xFC , 	0xB9 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x08 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x12 , 	
 0x00 , 	0x00 , 	0x40 , 	0x92 , 	
 0x00 , 	0x00 , 	0x81 , 	0x24 , 	
 0x00 , 	0x00 , 	0x40 , 	0x92 , 	
@@ -3034,8 +3034,6 @@ Parameter data for: IC 1 (Binary format starting at parameter address 0)
 00000000	11111110	01001111	10101111	
 00001111	10000001	10100110	11100100	
 00000000	00000000	00000000	00000000	
-00000000	00000000	00000000	00010010	
-00000000	00000000	00000000	00000000	
 00000000	00000000	00000010	01010010	
 00000000	00000000	00000100	10100100	
 00000000	00000000	00000010	01010010	
@@ -3051,6 +3049,8 @@ Parameter data for: IC 1 (Binary format starting at parameter address 0)
 00000000	01111111	11111100	10111001	
 00000000	10000000	00000000	00000000	
 00000000	00000000	00001000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00010010	
 00000000	00000000	01000000	10010010	
 00000000	00000000	10000001	00100100	
 00000000	00000000	01000000	10010010	
