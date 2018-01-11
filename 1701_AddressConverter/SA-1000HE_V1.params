@@ -197,180 +197,180 @@ Parameter Data :
 Cell Name         = HPF CH2.HPF2_24dB
 Parameter Name    = EQ1940Single80B1
 Parameter Address = 27
-Parameter Value   = 0.999078631401062
+Parameter Value   = 1
 Parameter Data :
-0x00 ,	0x7F ,	0xE1 ,	0xCF ,	
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH2.HPF2_24dB
 Parameter Name    = EQ1940Single81B1
 Parameter Address = 28
-Parameter Value   = -1.99815714359283
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0x00 ,	0x3C ,	0x63 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH2.HPF2_24dB
 Parameter Name    = EQ1940Single82B1
 Parameter Address = 29
-Parameter Value   = 0.999078631401062
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x7F ,	0xE1 ,	0xCF ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH2.HPF2_24dB
 Parameter Name    = EQ1940Single81A1
 Parameter Address = 30
-Parameter Value   = 1.99815630912781
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0xFF ,	0xC3 ,	0x96 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH2.HPF2_24dB
 Parameter Name    = EQ1940Single82A1
 Parameter Address = 31
-Parameter Value   = -0.998158097267151
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0x80 ,	0x3C ,	0x5B ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH1.HPF1_24dB
 Parameter Name    = EQ1940Single60B1
 Parameter Address = 32
-Parameter Value   = 0.999078631401062
+Parameter Value   = 1
 Parameter Data :
-0x00 ,	0x7F ,	0xE1 ,	0xCF ,	
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH1.HPF1_24dB
 Parameter Name    = EQ1940Single61B1
 Parameter Address = 33
-Parameter Value   = -1.99815714359283
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0x00 ,	0x3C ,	0x63 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH1.HPF1_24dB
 Parameter Name    = EQ1940Single62B1
 Parameter Address = 34
-Parameter Value   = 0.999078631401062
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x7F ,	0xE1 ,	0xCF ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH1.HPF1_24dB
 Parameter Name    = EQ1940Single61A1
 Parameter Address = 35
-Parameter Value   = 1.99815630912781
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0xFF ,	0xC3 ,	0x96 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = HPF CH1.HPF1_24dB
 Parameter Name    = EQ1940Single62A1
 Parameter Address = 36
-Parameter Value   = -0.998158097267151
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0x80 ,	0x3C ,	0x5B ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH2.LPF2_24dB
 Parameter Name    = EQ1940Single40B1
 Parameter Address = 17
-Parameter Value   = 0.220559477806091
+Parameter Value   = 1
 Parameter Data :
-0x00 ,	0x1C ,	0x3B ,	0x4B ,	
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH2.LPF2_24dB
 Parameter Name    = EQ1940Single41B1
 Parameter Address = 18
-Parameter Value   = 0.441118836402893
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x38 ,	0x76 ,	0x95 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH2.LPF2_24dB
 Parameter Name    = EQ1940Single42B1
 Parameter Address = 19
-Parameter Value   = 0.220559477806091
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x1C ,	0x3B ,	0x4B ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH2.LPF2_24dB
 Parameter Name    = EQ1940Single41A1
 Parameter Address = 20
-Parameter Value   = 0.308075785636902
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x27 ,	0x6F ,	0x07 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH2.LPF2_24dB
 Parameter Name    = EQ1940Single42A1
 Parameter Address = 21
-Parameter Value   = -0.190313577651978
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0xE7 ,	0xA3 ,	0xCE ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH1.LPF1_24dB
 Parameter Name    = EQ1940Single20B1
 Parameter Address = 22
-Parameter Value   = 0.220559477806091
+Parameter Value   = 1
 Parameter Data :
-0x00 ,	0x1C ,	0x3B ,	0x4B ,	
+0x00 ,	0x80 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH1.LPF1_24dB
 Parameter Name    = EQ1940Single21B1
 Parameter Address = 23
-Parameter Value   = 0.441118836402893
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x38 ,	0x76 ,	0x95 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH1.LPF1_24dB
 Parameter Name    = EQ1940Single22B1
 Parameter Address = 24
-Parameter Value   = 0.220559477806091
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x1C ,	0x3B ,	0x4B ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH1.LPF1_24dB
 Parameter Name    = EQ1940Single21A1
 Parameter Address = 25
-Parameter Value   = 0.308075785636902
+Parameter Value   = 0
 Parameter Data :
-0x00 ,	0x27 ,	0x6F ,	0x07 ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
 Cell Name         = LPF CH1.LPF1_24dB
 Parameter Name    = EQ1940Single22A1
 Parameter Address = 26
-Parameter Value   = -0.190313577651978
+Parameter Value   = 0
 Parameter Data :
-0x0F ,	0xE7 ,	0xA3 ,	0xCE ,	
+0x00 ,	0x00 ,	0x00 ,	0x00 ,	
 
 
 
@@ -1141,7 +1141,7 @@ Parameter Data :
 
 Cell Name         = PostGain2
 Parameter Name    = Gain1940AlgNS1
-Parameter Address = 150
+Parameter Address = 119
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
@@ -1150,7 +1150,7 @@ Parameter Data :
 
 Cell Name         = PostGain1
 Parameter Name    = Gain1940AlgNS2
-Parameter Address = 149
+Parameter Address = 120
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
@@ -1159,7 +1159,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1slope_1
-Parameter Address = 119
+Parameter Address = 136
 Parameter Value   = -0.014285683631897
 Parameter Data :
 0x0F, 0xFE, 0x2B, 0xE3, 
@@ -1168,7 +1168,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1inter_1
-Parameter Address = 120
+Parameter Address = 137
 Parameter Value   = 0.27142858505249
 Parameter Data :
 0x00, 0x22, 0xBE, 0x2C, 
@@ -1177,7 +1177,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1slope_2
-Parameter Address = 121
+Parameter Address = 138
 Parameter Value   = -0.166666626930237
 Parameter Data :
 0x0F, 0xEA, 0xAA, 0xAB, 
@@ -1186,7 +1186,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1inter_2
-Parameter Address = 122
+Parameter Address = 139
 Parameter Value   = 0.833333373069763
 Parameter Data :
 0x00, 0x6A, 0xAA, 0xAB, 
@@ -1195,7 +1195,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1slope_3
-Parameter Address = 123
+Parameter Address = 140
 Parameter Value   = -0.79365074634552
 Parameter Data :
 0x0F, 0x9A, 0x69, 0xA7, 
@@ -1204,7 +1204,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1inter_3
-Parameter Address = 124
+Parameter Address = 141
 Parameter Value   = 1.98412692546844
 Parameter Data :
 0x00, 0xFD, 0xF7, 0xDF, 
@@ -1213,7 +1213,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1slope_4
-Parameter Address = 125
+Parameter Address = 142
 Parameter Value   = -15.5279502868652
 Parameter Data :
 0x08, 0x3C, 0x6C, 0x20, 
@@ -1222,7 +1222,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1inter_4
-Parameter Address = 126
+Parameter Address = 143
 Parameter Value   = 7.91925466060638
 Parameter Data :
 0x03, 0xF5, 0xAA, 0x23, 
@@ -1231,7 +1231,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1comp1
-Parameter Address = 127
+Parameter Address = 144
 Parameter Value   = 3
 Parameter Data :
 0x01, 0x80, 0x00, 0x00, 
@@ -1240,7 +1240,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1comp2
-Parameter Address = 128
+Parameter Address = 145
 Parameter Value   = 2
 Parameter Data :
 0x01, 0x00, 0x00, 0x00, 
@@ -1249,7 +1249,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1comp3
-Parameter Address = 129
+Parameter Address = 146
 Parameter Value   = 0.399999976158142
 Parameter Data :
 0x00, 0x33, 0x33, 0x33, 
@@ -1258,7 +1258,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1RMS_MONO_TCONST
-Parameter Address = 131
+Parameter Address = 148
 Parameter Value   = 0.000119924545288086
 Parameter Data :
 0x00, 0x00, 0x03, 0xEE, 
@@ -1267,7 +1267,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1threshold
-Parameter Address = 130
+Parameter Address = 147
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
@@ -1276,7 +1276,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1decay
-Parameter Address = 132
+Parameter Address = 149
 Parameter Value   = 0.000244140625
 Parameter Data :
 0x00, 0x00, 0x08, 0x00, 
@@ -1285,7 +1285,7 @@ Parameter Data :
 
 Cell Name         = Limiter 1
 Parameter Name    = limiterAlg1decaycomplement
-Parameter Address = 133
+Parameter Address = 150
 Parameter Value   = 0.99951171875
 Parameter Data :
 0x00, 0x7F, 0xF0, 0x00, 
@@ -1294,7 +1294,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2slope_1
-Parameter Address = 134
+Parameter Address = 121
 Parameter Value   = -0.014285683631897
 Parameter Data :
 0x0F, 0xFE, 0x2B, 0xE3, 
@@ -1303,7 +1303,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2inter_1
-Parameter Address = 135
+Parameter Address = 122
 Parameter Value   = 0.27142858505249
 Parameter Data :
 0x00, 0x22, 0xBE, 0x2C, 
@@ -1312,7 +1312,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2slope_2
-Parameter Address = 136
+Parameter Address = 123
 Parameter Value   = -0.166666626930237
 Parameter Data :
 0x0F, 0xEA, 0xAA, 0xAB, 
@@ -1321,7 +1321,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2inter_2
-Parameter Address = 137
+Parameter Address = 124
 Parameter Value   = 0.833333373069763
 Parameter Data :
 0x00, 0x6A, 0xAA, 0xAB, 
@@ -1330,7 +1330,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2slope_3
-Parameter Address = 138
+Parameter Address = 125
 Parameter Value   = -0.79365074634552
 Parameter Data :
 0x0F, 0x9A, 0x69, 0xA7, 
@@ -1339,7 +1339,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2inter_3
-Parameter Address = 139
+Parameter Address = 126
 Parameter Value   = 1.98412692546844
 Parameter Data :
 0x00, 0xFD, 0xF7, 0xDF, 
@@ -1348,7 +1348,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2slope_4
-Parameter Address = 140
+Parameter Address = 127
 Parameter Value   = -15.5279502868652
 Parameter Data :
 0x08, 0x3C, 0x6C, 0x20, 
@@ -1357,7 +1357,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2inter_4
-Parameter Address = 141
+Parameter Address = 128
 Parameter Value   = 7.91925466060638
 Parameter Data :
 0x03, 0xF5, 0xAA, 0x23, 
@@ -1366,7 +1366,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2comp1
-Parameter Address = 142
+Parameter Address = 129
 Parameter Value   = 3
 Parameter Data :
 0x01, 0x80, 0x00, 0x00, 
@@ -1375,7 +1375,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2comp2
-Parameter Address = 143
+Parameter Address = 130
 Parameter Value   = 2
 Parameter Data :
 0x01, 0x00, 0x00, 0x00, 
@@ -1384,7 +1384,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2comp3
-Parameter Address = 144
+Parameter Address = 131
 Parameter Value   = 0.399999976158142
 Parameter Data :
 0x00, 0x33, 0x33, 0x33, 
@@ -1393,7 +1393,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2RMS_MONO_TCONST
-Parameter Address = 146
+Parameter Address = 133
 Parameter Value   = 0.000119924545288086
 Parameter Data :
 0x00, 0x00, 0x03, 0xEE, 
@@ -1402,7 +1402,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2threshold
-Parameter Address = 145
+Parameter Address = 132
 Parameter Value   = 1
 Parameter Data :
 0x00, 0x80, 0x00, 0x00, 
@@ -1411,7 +1411,7 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2decay
-Parameter Address = 147
+Parameter Address = 134
 Parameter Value   = 0.000244140625
 Parameter Data :
 0x00, 0x00, 0x08, 0x00, 
@@ -1420,28 +1420,10 @@ Parameter Data :
 
 Cell Name         = Limiter 2
 Parameter Name    = limiterAlg2decaycomplement
-Parameter Address = 148
+Parameter Address = 135
 Parameter Value   = 0.99951171875
 Parameter Data :
 0x00, 0x7F, 0xF0, 0x00, 
-
-
-
-Cell Name         = PROT vol 1
-Parameter Name    = SWGain1940DBAlg1target
-Parameter Address = 151
-Parameter Value   = 1
-Parameter Data :
-0x00 ,	0x80 ,	0x00 ,	0x00 ,	
-
-
-
-Cell Name         = PROT vol 1
-Parameter Name    = SWGain1940DBAlg1step
-Parameter Address = 152
-Parameter Value   = 0.000244140625
-Parameter Data :
-0x00 ,	0x00 ,	0x08 ,	0x00 ,	
 
 
 
@@ -1463,21 +1445,21 @@ Parameter Data :
 
 
 
-Cell Name         = PROT vol 2
-Parameter Name    = SWGain1940DBAlg2target
+Cell Name         = HardClip1
+Parameter Name    = HardClipAlg1up
+Parameter Address = 151
+Parameter Data :
+0x00, 0x80, 0x00, 0x00, 
+0xFF, 0x80, 0x00, 0x00, 
+
+
+
+Cell Name         = HardClip2
+Parameter Name    = HardClipAlg2up
 Parameter Address = 153
-Parameter Value   = 1
 Parameter Data :
-0x00 ,	0x80 ,	0x00 ,	0x00 ,	
-
-
-
-Cell Name         = PROT vol 2
-Parameter Name    = SWGain1940DBAlg2step
-Parameter Address = 154
-Parameter Value   = 0.000244140625
-Parameter Data :
-0x00 ,	0x00 ,	0x08 ,	0x00 ,	
+0x00, 0x80, 0x00, 0x00, 
+0xFF, 0x80, 0x00, 0x00, 
 
 
 
@@ -1500,26 +1482,6 @@ See also SA-1000HE_V1.hex file
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x01 , 	
 0x00 , 	0x00 , 	0x00 , 	0x01 , 	
-0x00 , 	0x1C , 	0x3B , 	0x4B , 	
-0x00 , 	0x38 , 	0x76 , 	0x95 , 	
-0x00 , 	0x1C , 	0x3B , 	0x4B , 	
-0x00 , 	0x27 , 	0x6F , 	0x07 , 	
-0x0F , 	0xE7 , 	0xA3 , 	0xCE , 	
-0x00 , 	0x1C , 	0x3B , 	0x4B , 	
-0x00 , 	0x38 , 	0x76 , 	0x95 , 	
-0x00 , 	0x1C , 	0x3B , 	0x4B , 	
-0x00 , 	0x27 , 	0x6F , 	0x07 , 	
-0x0F , 	0xE7 , 	0xA3 , 	0xCE , 	
-0x00 , 	0x7F , 	0xE1 , 	0xCF , 	
-0x0F , 	0x00 , 	0x3C , 	0x63 , 	
-0x00 , 	0x7F , 	0xE1 , 	0xCF , 	
-0x00 , 	0xFF , 	0xC3 , 	0x96 , 	
-0x0F , 	0x80 , 	0x3C , 	0x5B , 	
-0x00 , 	0x7F , 	0xE1 , 	0xCF , 	
-0x0F , 	0x00 , 	0x3C , 	0x63 , 	
-0x00 , 	0x7F , 	0xE1 , 	0xCF , 	
-0x00 , 	0xFF , 	0xC3 , 	0x96 , 	
-0x0F , 	0x80 , 	0x3C , 	0x5B , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
@@ -1600,6 +1562,28 @@ See also SA-1000HE_V1.hex file
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x00 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
 0x0F , 	0xFE , 	0x2B , 	0xE3 , 	
@@ -1633,11 +1617,9 @@ See also SA-1000HE_V1.hex file
 0x00 , 	0x00 , 	0x08 , 	0x00 , 	
 0x00 , 	0x7F , 	0xF0 , 	0x00 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
+0xFF , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x80 , 	0x00 , 	0x00 , 	
-0x00 , 	0x80 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x08 , 	0x00 , 	
-0x00 , 	0x80 , 	0x00 , 	0x00 , 	
-0x00 , 	0x00 , 	0x08 , 	0x00 , 	
+0xFF , 	0x80 , 	0x00 , 	0x00 , 	
 0x00 , 	0x00 , 	0x6A , 	0x56 , 	
 0x00 , 	0x00 , 	0x00 , 	0x00 , 	
 0x00 , 	0x7F , 	0x95 , 	0xAA , 	
@@ -2526,26 +2508,6 @@ Parameter data for: IC 1 (Binary format starting at parameter address 0)
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000001	
 00000000	00000000	00000000	00000001	
-00000000	00011100	00111011	01001011	
-00000000	00111000	01110110	10010101	
-00000000	00011100	00111011	01001011	
-00000000	00100111	01101111	00000111	
-00001111	11100111	10100011	11001110	
-00000000	00011100	00111011	01001011	
-00000000	00111000	01110110	10010101	
-00000000	00011100	00111011	01001011	
-00000000	00100111	01101111	00000111	
-00001111	11100111	10100011	11001110	
-00000000	01111111	11100001	11001111	
-00001111	00000000	00111100	01100011	
-00000000	01111111	11100001	11001111	
-00000000	11111111	11000011	10010110	
-00001111	10000000	00111100	01011011	
-00000000	01111111	11100001	11001111	
-00001111	00000000	00111100	01100011	
-00000000	01111111	11100001	11001111	
-00000000	11111111	11000011	10010110	
-00001111	10000000	00111100	01011011	
 00000000	10000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
@@ -2626,6 +2588,28 @@ Parameter data for: IC 1 (Binary format starting at parameter address 0)
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
 00000000	00000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	00000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
+00000000	10000000	00000000	00000000	
 00000000	10000000	00000000	00000000	
 00000000	10000000	00000000	00000000	
 00001111	11111110	00101011	11100011	
@@ -2659,11 +2643,9 @@ Parameter data for: IC 1 (Binary format starting at parameter address 0)
 00000000	00000000	00001000	00000000	
 00000000	01111111	11110000	00000000	
 00000000	10000000	00000000	00000000	
+11111111	10000000	00000000	00000000	
 00000000	10000000	00000000	00000000	
-00000000	10000000	00000000	00000000	
-00000000	00000000	00001000	00000000	
-00000000	10000000	00000000	00000000	
-00000000	00000000	00001000	00000000	
+11111111	10000000	00000000	00000000	
 00000000	00000000	01101010	01010110	
 00000000	00000000	00000000	00000000	
 00000000	01111111	10010101	10101010	

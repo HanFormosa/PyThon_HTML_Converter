@@ -17,7 +17,7 @@ MuteNoSlewAlg1mute
 MuteNoSlewAlg2mute
 limiterAlg1threshold
 limiterAlg2threshold
-SWGain1940DBAlg1target
-SWGain1940DBAlg2target
+HardClipAlg1up
+HardClipAlg2up
 Gain1940AlgNS2
 Gain1940AlgNS1
