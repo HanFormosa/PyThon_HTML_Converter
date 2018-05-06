@@ -53,7 +53,7 @@ def extract():
             pass
     totalline = i + 1
     for i in range(0, totalline):
-        with open("SA-1000HE_V1.params", 'r+') as f3:
+        with open("PDJ-1000.params", 'r+') as f3:
             for line in f3:
                 if entries_Alias[i].get() in line:
                     line = f3.readline() # read next line
