@@ -1,3 +1,4 @@
+stereomux1940ns10
 Gain1940AlgNS2
 Gain1940AlgNS4
 SWGain1940DBAlg1target
@@ -19,6 +20,7 @@ EQ1940Single130B1
 PEQ1Chan10B1
 PEQ1Chan20B1
 MuteSWSlewAlg1mute
+MuteSWSlewAlg2mute
 limiterAlg2threshold
 limiterAlg3threshold
 HardClipAlg1up
