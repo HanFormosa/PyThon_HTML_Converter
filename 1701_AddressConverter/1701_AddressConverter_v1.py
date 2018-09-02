@@ -53,7 +53,7 @@ def extract():
             pass
     totalline = i + 1
     for i in range(0, totalline):
-        with open("PDJ-1000.params", 'r+') as f3:
+        with open("MT-1240PA.params", 'r+') as f3:
             for line in f3:
                 if entries_Alias[i].get() in line:
                     line = f3.readline() # read next line
