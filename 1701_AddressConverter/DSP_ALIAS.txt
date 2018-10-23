@@ -1,4 +1,5 @@
 stereomux1940ns10
+monomux1940ns1_0
 Gain1940AlgNS2
 EQ1940Invert5gain
 DCInpAlg4
@@ -18,3 +19,4 @@ HardClipAlg1up
 Gain1940AlgNS1
 SWGain1940DBAlg3target
 EQ1940Invert1gain
+thresholdSignalDetectAlg3
