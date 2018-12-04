@@ -53,17 +53,21 @@ def extract():
             pass
     totalline = i + 1
     for i in range(0, totalline):
-        with open("MT-1240PA.params", 'r+') as f3:
+        with open("AV-425H_Add.params", 'r+') as f3:
             for line in f3:
                 if entries_Alias[i].get() in line:
-                    line = f3.readline() # read next line
-                    print(line.strip("\n"))
-                    address = line[20:-1] # extract
-                    hex_address = hex(int(address))
-                    print(hex_address)
-                    entries_Address[i].delete(0, END)
-                    entries_Address[i].insert(0, hex_address)
-                    break
+                    tmp_line = line[20:-1]  # check for whole word
+                    if entries_Alias[i].get() != tmp_line:
+                        print("no matching whole word detected. Found :" + tmp_line)
+                    else:
+                        line = f3.readline() # read next line
+                        print(line.strip("\n"))
+                        address = line[20:-1] # extract
+                        hex_address = hex(int(address))
+                        print(hex_address)
+                        entries_Address[i].delete(0, END)
+                        entries_Address[i].insert(0, hex_address)
+                        break
 
 def convert():
     text_log.delete(1.0, END)  # clear text
