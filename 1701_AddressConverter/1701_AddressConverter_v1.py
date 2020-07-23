@@ -53,7 +53,7 @@ def extract():
             pass
     totalline = i + 1
     for i in range(0, totalline):
-        with open("MT-1240PA.params", 'r+') as f3:
+        with open("MT1000E2.params", 'r+') as f3:
             for line in f3:
                 if entries_Alias[i].get() in line:
                     tmp_line = line[20:-1]  # check for whole word
